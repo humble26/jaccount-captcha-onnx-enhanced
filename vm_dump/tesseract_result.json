@@ -1,0 +1,374 @@
+{
+ "A": [
+  {
+   "id": "c00",
+   "raw": "yvcew\n",
+   "pred": "yvcew",
+   "truth": "yvcew",
+   "ms": 1054,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "id": "c01",
+   "raw": "fcvitf\n",
+   "pred": "fcvitf",
+   "truth": "fcvtf",
+   "ms": 171,
+   "ok": false,
+   "why": "长度 6≠5"
+  },
+  {
+   "id": "c02",
+   "raw": "ymoad\n",
+   "pred": "ymoad",
+   "truth": "ymoad",
+   "ms": 166,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "id": "c03",
+   "raw": "qgjnf\n",
+   "pred": "qgjnf",
+   "truth": "qgjnf",
+   "ms": 165,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "id": "c04",
+   "raw": "txju\n",
+   "pred": "txju",
+   "truth": "txju",
+   "ms": 162,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "id": "c05",
+   "raw": "fomr\n",
+   "pred": "fomr",
+   "truth": "fomr",
+   "ms": 163,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "id": "c06",
+   "raw": "bbmbh\n",
+   "pred": "bbmbh",
+   "truth": "bbmbh",
+   "ms": 162,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "id": "c07",
+   "raw": "wx mh\n",
+   "pred": "wxmh",
+   "truth": "wxmh",
+   "ms": 159,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "id": "c08",
+   "raw": "kwwkc\n",
+   "pred": "kwwkc",
+   "truth": "kwwkc",
+   "ms": 163,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "id": "c09",
+   "raw": "afex\n",
+   "pred": "afex",
+   "truth": "afex",
+   "ms": 172,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "id": "c10",
+   "raw": "fsyeu\n",
+   "pred": "fsyeu",
+   "truth": "fsyeu",
+   "ms": 201,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "id": "c11",
+   "raw": "jgvec\n",
+   "pred": "jgvec",
+   "truth": "jgvc",
+   "ms": 184,
+   "ok": false,
+   "why": "长度 5≠4"
+  },
+  {
+   "id": "c12",
+   "raw": "riixo\n",
+   "pred": "riixo",
+   "truth": "riixo",
+   "ms": 164,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "id": "c13",
+   "raw": "ocanu\n",
+   "pred": "ocanu",
+   "truth": "oanu",
+   "ms": 171,
+   "ok": false,
+   "why": "长度 5≠4"
+  },
+  {
+   "id": "c14",
+   "raw": "ugal\n",
+   "pred": "ugal",
+   "truth": "ugal",
+   "ms": 166,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "id": "c15",
+   "raw": "odeb\n",
+   "pred": "odeb",
+   "truth": "odeb",
+   "ms": 167,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "id": "c16",
+   "raw": "mutww\n",
+   "pred": "mutww",
+   "truth": "mutww",
+   "ms": 169,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "id": "c17",
+   "raw": "of JF\n",
+   "pred": "ofJF",
+   "truth": "ohlf",
+   "ms": 170,
+   "ok": false,
+   "why": "3 个字符错"
+  },
+  {
+   "id": "c18",
+   "raw": "rbrmw\n",
+   "pred": "rbrmw",
+   "truth": "rbrmw",
+   "ms": 167,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "id": "c19",
+   "raw": "whto\n",
+   "pred": "whto",
+   "truth": "whto",
+   "ms": 168,
+   "ok": true,
+   "why": ""
+  }
+ ],
+ "B": [
+  {
+   "id": "c00",
+   "pred": "yveew",
+   "truth": "yvcew",
+   "ms": 33,
+   "conf": 66,
+   "ok": false,
+   "why": "1 个字符错"
+  },
+  {
+   "id": "c01",
+   "pred": "fevet",
+   "truth": "fcvtf",
+   "ms": 15,
+   "conf": 0,
+   "ok": false,
+   "why": "3 个字符错"
+  },
+  {
+   "id": "c02",
+   "pred": "ymoad",
+   "truth": "ymoad",
+   "ms": 12,
+   "conf": 0,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "id": "c03",
+   "pred": "aginf",
+   "truth": "qgjnf",
+   "ms": 13,
+   "conf": 28,
+   "ok": false,
+   "why": "2 个字符错"
+  },
+  {
+   "id": "c04",
+   "pred": "exju",
+   "truth": "txju",
+   "ms": 17,
+   "conf": 0,
+   "ok": false,
+   "why": "1 个字符错"
+  },
+  {
+   "id": "c05",
+   "pred": "fomr",
+   "truth": "fomr",
+   "ms": 15,
+   "conf": 0,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "id": "c06",
+   "pred": "bbmbh",
+   "truth": "bbmbh",
+   "ms": 14,
+   "conf": 18,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "id": "c07",
+   "pred": "wxmh",
+   "truth": "wxmh",
+   "ms": 12,
+   "conf": 12,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "id": "c08",
+   "pred": "kwwke",
+   "truth": "kwwkc",
+   "ms": 14,
+   "conf": 10,
+   "ok": false,
+   "why": "1 个字符错"
+  },
+  {
+   "id": "c09",
+   "pred": "afex",
+   "truth": "afex",
+   "ms": 12,
+   "conf": 0,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "id": "c10",
+   "pred": "fsyeu",
+   "truth": "fsyeu",
+   "ms": 11,
+   "conf": 40,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "id": "c11",
+   "pred": "jgve",
+   "truth": "jgvc",
+   "ms": 11,
+   "conf": 0,
+   "ok": false,
+   "why": "1 个字符错"
+  },
+  {
+   "id": "c12",
+   "pred": "riixo",
+   "truth": "riixo",
+   "ms": 13,
+   "conf": 1,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "id": "c13",
+   "pred": "canu",
+   "truth": "oanu",
+   "ms": 11,
+   "conf": 0,
+   "ok": false,
+   "why": "1 个字符错"
+  },
+  {
+   "id": "c14",
+   "pred": "ugal",
+   "truth": "ugal",
+   "ms": 13,
+   "conf": 0,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "id": "c15",
+   "pred": "odeb",
+   "truth": "odeb",
+   "ms": 12,
+   "conf": 0,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "id": "c16",
+   "pred": "matww",
+   "truth": "mutww",
+   "ms": 16,
+   "conf": 18,
+   "ok": false,
+   "why": "1 个字符错"
+  },
+  {
+   "id": "c17",
+   "pred": "ent",
+   "truth": "ohlf",
+   "ms": 16,
+   "conf": 16,
+   "ok": false,
+   "why": "长度 3≠4"
+  },
+  {
+   "id": "c18",
+   "pred": "ormw",
+   "truth": "rbrmw",
+   "ms": 11,
+   "conf": 2,
+   "ok": false,
+   "why": "长度 4≠5"
+  },
+  {
+   "id": "c19",
+   "pred": "who",
+   "truth": "whto",
+   "ms": 13,
+   "conf": 0,
+   "ok": false,
+   "why": "长度 3≠4"
+  }
+ ],
+ "meta": {
+  "A_total_ms": 4270,
+  "B_total_ms": 415,
+  "B_warmup_ms": 129,
+  "A_acc": 16,
+  "B_acc": 9,
+  "n": 20
+ }
+}

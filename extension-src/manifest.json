@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "jAccount 验证码自动识别（ResNet）",
+  "version": "1.0.4",
+  "description": "打开 SJTU jAccount 登录页时自动识别验证码并填入。模型与推理引擎全部打包在扩展内，本机离线运行，不上传任何数据。",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://jaccount.sjtu.edu.cn/jaccount/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "assets/ort-wasm-simd.wasm",
+        "assets/nn_model.onnx"
+      ],
+      "matches": [
+        "https://jaccount.sjtu.edu.cn/*"
+      ]
+    }
+  ]
+}

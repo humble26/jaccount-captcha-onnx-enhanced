@@ -1,0 +1,851 @@
+{
+ "hits": {
+  "tess_now": 89,
+  "tess_new": 89,
+  "resnet_old": 114,
+  "resnet_new": 116
+ },
+ "n": 120,
+ "detail": {
+  "c00": {
+   "truth": "yvcew",
+   "resnet_new": "yvcew",
+   "resnet_old": "yvcew",
+   "tess_now": "yvcew",
+   "tess_new": "yvcew"
+  },
+  "c01": {
+   "truth": "fcvtf",
+   "resnet_new": "fcvtf",
+   "resnet_old": "fcvtf",
+   "tess_now": "fcvitf",
+   "tess_new": "fevitf"
+  },
+  "c02": {
+   "truth": "ymoad",
+   "resnet_new": "ymoad",
+   "resnet_old": "ymoad",
+   "tess_now": "ymoad",
+   "tess_new": "ymoad"
+  },
+  "c03": {
+   "truth": "qgjnf",
+   "resnet_new": "qgjnf",
+   "resnet_old": "qgjnf",
+   "tess_now": "qgjnf",
+   "tess_new": "qgjnf"
+  },
+  "c04": {
+   "truth": "txju",
+   "resnet_new": "txju",
+   "resnet_old": "txju",
+   "tess_now": "txju",
+   "tess_new": "txju"
+  },
+  "c05": {
+   "truth": "fomr",
+   "resnet_new": "fomr",
+   "resnet_old": "fomr",
+   "tess_now": "fomr",
+   "tess_new": "fomr"
+  },
+  "c06": {
+   "truth": "bbmbh",
+   "resnet_new": "bbmbh",
+   "resnet_old": "bbmbh",
+   "tess_now": "bbmbh",
+   "tess_new": "bbmbh"
+  },
+  "c07": {
+   "truth": "wxmh",
+   "resnet_new": "wxmh",
+   "resnet_old": "wxmh",
+   "tess_now": "wxmh",
+   "tess_new": "wxmh"
+  },
+  "c08": {
+   "truth": "kwwkc",
+   "resnet_new": "kwwkc",
+   "resnet_old": "kwwk",
+   "tess_now": "kwwkc",
+   "tess_new": "kwwkc"
+  },
+  "c09": {
+   "truth": "afex",
+   "resnet_new": "afex",
+   "resnet_old": "afex",
+   "tess_now": "afex",
+   "tess_new": "afex"
+  },
+  "c10": {
+   "truth": "fsyeu",
+   "resnet_new": "fsyeu",
+   "resnet_old": "fsyeu",
+   "tess_now": "fsyeu",
+   "tess_new": "fsyeu"
+  },
+  "c11": {
+   "truth": "jgvc",
+   "resnet_new": "jgvc",
+   "resnet_old": "jgvc",
+   "tess_now": "jgvec",
+   "tess_new": "jgvec"
+  },
+  "c12": {
+   "truth": "riixo",
+   "resnet_new": "riioo",
+   "resnet_old": "riioo",
+   "tess_now": "riixo",
+   "tess_new": "riixo"
+  },
+  "c13": {
+   "truth": "oanu",
+   "resnet_new": "oanu",
+   "resnet_old": "oanu",
+   "tess_now": "ocanu",
+   "tess_new": "oanu"
+  },
+  "c14": {
+   "truth": "ugal",
+   "resnet_new": "ugal",
+   "resnet_old": "ugal",
+   "tess_now": "ugal",
+   "tess_new": "ugal"
+  },
+  "c15": {
+   "truth": "odeb",
+   "resnet_new": "odeb",
+   "resnet_old": "odeb",
+   "tess_now": "odeb",
+   "tess_new": "odeb"
+  },
+  "c16": {
+   "truth": "mutww",
+   "resnet_new": "mutww",
+   "resnet_old": "mutww",
+   "tess_now": "mutww",
+   "tess_new": "mutww"
+  },
+  "c17": {
+   "truth": "ohlf",
+   "resnet_new": "ohlf",
+   "resnet_old": "ohlf",
+   "tess_now": "ofJF",
+   "tess_new": "ohf"
+  },
+  "c18": {
+   "truth": "rbrmw",
+   "resnet_new": "rbrmw",
+   "resnet_old": "rbrmw",
+   "tess_now": "rbrmw",
+   "tess_new": "rbrmw"
+  },
+  "c19": {
+   "truth": "whto",
+   "resnet_new": "whto",
+   "resnet_old": "whto",
+   "tess_now": "whto",
+   "tess_new": "whto"
+  },
+  "n000": {
+   "truth": "ngfym",
+   "resnet_new": "ngfym",
+   "resnet_old": "ngfym",
+   "tess_now": "ngfym",
+   "tess_new": "ngfym"
+  },
+  "n001": {
+   "truth": "rxdx",
+   "resnet_new": "rxdx",
+   "resnet_old": "rxdx",
+   "tess_now": "rxdx",
+   "tess_new": "rxdx"
+  },
+  "n002": {
+   "truth": "ybun",
+   "resnet_new": "ybun",
+   "resnet_old": "ybun",
+   "tess_now": "ybun",
+   "tess_new": "ybun"
+  },
+  "n003": {
+   "truth": "bkpek",
+   "resnet_new": "bkpek",
+   "resnet_old": "bkpek",
+   "tess_now": "bkpek",
+   "tess_new": "bkpek"
+  },
+  "n004": {
+   "truth": "ywys",
+   "resnet_new": "ywys",
+   "resnet_old": "ywys",
+   "tess_now": "ywys",
+   "tess_new": "ywys"
+  },
+  "n005": {
+   "truth": "ppdgv",
+   "resnet_new": "ppdgv",
+   "resnet_old": "ppdgv",
+   "tess_now": "ppdgyv",
+   "tess_new": "ppdgv"
+  },
+  "n006": {
+   "truth": "vxzq",
+   "resnet_new": "vxzq",
+   "resnet_old": "vxzq",
+   "tess_now": "vXxzqg",
+   "tess_new": "vxzqg"
+  },
+  "n007": {
+   "truth": "volq",
+   "resnet_new": "volq",
+   "resnet_old": "volq",
+   "tess_now": "volg",
+   "tess_new": "volg"
+  },
+  "n008": {
+   "truth": "gnhri",
+   "resnet_new": "gnhri",
+   "resnet_old": "gnhri",
+   "tess_now": "gnhri",
+   "tess_new": "gnhri"
+  },
+  "n009": {
+   "truth": "lnwif",
+   "resnet_new": "lnwif",
+   "resnet_old": "lnwif",
+   "tess_now": "Inwif",
+   "tess_new": "nwif"
+  },
+  "n010": {
+   "truth": "gzpet",
+   "resnet_new": "gzpet",
+   "resnet_old": "gzpet",
+   "tess_now": "gzpet",
+   "tess_new": "gzpet"
+  },
+  "n011": {
+   "truth": "ejnpk",
+   "resnet_new": "ejnpk",
+   "resnet_old": "ejnpk",
+   "tess_now": "ejnpk",
+   "tess_new": "ejnpk"
+  },
+  "n012": {
+   "truth": "ddch",
+   "resnet_new": "ddch",
+   "resnet_old": "ddch",
+   "tess_now": "ddch",
+   "tess_new": "ddch"
+  },
+  "n013": {
+   "truth": "czyu",
+   "resnet_new": "czyu",
+   "resnet_old": "czyu",
+   "tess_now": "czyu",
+   "tess_new": "czyu"
+  },
+  "n014": {
+   "truth": "dpssc",
+   "resnet_new": "dpssc",
+   "resnet_old": "dpssc",
+   "tess_now": "dpssc",
+   "tess_new": "dpssc"
+  },
+  "n015": {
+   "truth": "azjqc",
+   "resnet_new": "azjqc",
+   "resnet_old": "azjqc",
+   "tess_now": "azjqc",
+   "tess_new": "azjgc"
+  },
+  "n016": {
+   "truth": "gvmqx",
+   "resnet_new": "gvmqx",
+   "resnet_old": "gvmqx",
+   "tess_now": "gvmagx",
+   "tess_new": "gvmax"
+  },
+  "n017": {
+   "truth": "hopl",
+   "resnet_new": "hopl",
+   "resnet_old": "hopl",
+   "tess_now": "hop",
+   "tess_new": "hopl"
+  },
+  "n018": {
+   "truth": "naxc",
+   "resnet_new": "naxc",
+   "resnet_old": "naxc",
+   "tess_now": "naxc",
+   "tess_new": "haxc"
+  },
+  "n019": {
+   "truth": "kgji",
+   "resnet_new": "kgji",
+   "resnet_old": "kgji",
+   "tess_now": "kgji",
+   "tess_new": "kgji"
+  },
+  "n020": {
+   "truth": "magf",
+   "resnet_new": "magf",
+   "resnet_old": "magf",
+   "tess_now": "magf",
+   "tess_new": "magf"
+  },
+  "n021": {
+   "truth": "osos",
+   "resnet_new": "osos",
+   "resnet_old": "osos",
+   "tess_now": "0sos",
+   "tess_new": "csos"
+  },
+  "n022": {
+   "truth": "dnpgk",
+   "resnet_new": "dnpgk",
+   "resnet_old": "dnpgk",
+   "tess_now": "dnpgk",
+   "tess_new": "dnpgk"
+  },
+  "n023": {
+   "truth": "locki",
+   "resnet_new": "locki",
+   "resnet_old": "locki",
+   "tess_now": "locki",
+   "tess_new": "locki"
+  },
+  "n024": {
+   "truth": "gdlha",
+   "resnet_new": "gdlha",
+   "resnet_old": "gdlha",
+   "tess_now": "gdlha",
+   "tess_new": "gdlha"
+  },
+  "n025": {
+   "truth": "fdxk",
+   "resnet_new": "fdxk",
+   "resnet_old": "fdxk",
+   "tess_now": "fdxk",
+   "tess_new": "fdxk"
+  },
+  "n026": {
+   "truth": "ycnjb",
+   "resnet_new": "ycnjb",
+   "resnet_old": "ycnjb",
+   "tess_now": "ycnijhb",
+   "tess_new": "ycnijb"
+  },
+  "n027": {
+   "truth": "saqvi",
+   "resnet_new": "saqvi",
+   "resnet_old": "saqvi",
+   "tess_now": "saqvi",
+   "tess_new": "saqvi"
+  },
+  "n028": {
+   "truth": "rudih",
+   "resnet_new": "rudih",
+   "resnet_old": "rudih",
+   "tess_now": "rudih",
+   "tess_new": "rudih"
+  },
+  "n029": {
+   "truth": "odzzl",
+   "resnet_new": "odzzl",
+   "resnet_old": "odzzl",
+   "tess_now": "odzzl",
+   "tess_new": "odzzl"
+  },
+  "n030": {
+   "truth": "mrmia",
+   "resnet_new": "mrmia",
+   "resnet_old": "mrmia",
+   "tess_now": "mrmia",
+   "tess_new": "mrmia"
+  },
+  "n031": {
+   "truth": "lxqp",
+   "resnet_new": "lxqp",
+   "resnet_old": "lxqp",
+   "tess_now": "Ixqp",
+   "tess_new": "ixqgp"
+  },
+  "n032": {
+   "truth": "fskz",
+   "resnet_new": "fskz",
+   "resnet_old": "fskz",
+   "tess_now": "fskz",
+   "tess_new": "fskz"
+  },
+  "n033": {
+   "truth": "pfex",
+   "resnet_new": "pfex",
+   "resnet_old": "pfex",
+   "tess_now": "pfex",
+   "tess_new": "pfex"
+  },
+  "n034": {
+   "truth": "ljqwv",
+   "resnet_new": "ljqwv",
+   "resnet_old": "ljqwv",
+   "tess_now": "ljqwyv",
+   "tess_new": "ljgwyv"
+  },
+  "n035": {
+   "truth": "sokzn",
+   "resnet_new": "sokzn",
+   "resnet_old": "sokzn",
+   "tess_now": "sokzn",
+   "tess_new": "sokzn"
+  },
+  "n036": {
+   "truth": "fnsn",
+   "resnet_new": "fnsn",
+   "resnet_old": "fnsn",
+   "tess_now": "fms",
+   "tess_new": "fnsn"
+  },
+  "n037": {
+   "truth": "utih",
+   "resnet_new": "utih",
+   "resnet_old": "utih",
+   "tess_now": "utih",
+   "tess_new": "utih"
+  },
+  "n038": {
+   "truth": "menyj",
+   "resnet_new": "menyj",
+   "resnet_old": "menyj",
+   "tess_now": "menyj",
+   "tess_new": "menyij"
+  },
+  "n039": {
+   "truth": "ofts",
+   "resnet_new": "ofts",
+   "resnet_old": "ofts",
+   "tess_now": "ofts",
+   "tess_new": "ofts"
+  },
+  "n040": {
+   "truth": "kdqo",
+   "resnet_new": "kdqo",
+   "resnet_old": "kdqo",
+   "tess_now": "kdgo",
+   "tess_new": "kdgo"
+  },
+  "n041": {
+   "truth": "tkmje",
+   "resnet_new": "tkmje",
+   "resnet_old": "tkmje",
+   "tess_now": "tkmje",
+   "tess_new": "tkmije"
+  },
+  "n042": {
+   "truth": "idad",
+   "resnet_new": "idad",
+   "resnet_old": "idad",
+   "tess_now": "idad",
+   "tess_new": "idad"
+  },
+  "n043": {
+   "truth": "ylyo",
+   "resnet_new": "ylyo",
+   "resnet_old": "ylyo",
+   "tess_now": "ylyo",
+   "tess_new": "yfyo"
+  },
+  "n044": {
+   "truth": "huaa",
+   "resnet_new": "huaa",
+   "resnet_old": "huaa",
+   "tess_now": "huaa",
+   "tess_new": "huaa"
+  },
+  "n045": {
+   "truth": "bhbu",
+   "resnet_new": "bhbu",
+   "resnet_old": "bhbu",
+   "tess_now": "bhbu",
+   "tess_new": "bhbu"
+  },
+  "n046": {
+   "truth": "sqvoj",
+   "resnet_new": "sqvoj",
+   "resnet_old": "sqvoj",
+   "tess_now": "sqvoj",
+   "tess_new": "sgvoj"
+  },
+  "n047": {
+   "truth": "aouim",
+   "resnet_new": "aouim",
+   "resnet_old": "aouim",
+   "tess_now": "aouim",
+   "tess_new": "aouim"
+  },
+  "n048": {
+   "truth": "zclwe",
+   "resnet_new": "zclwe",
+   "resnet_old": "zclwe",
+   "tess_now": "zclwe",
+   "tess_new": "zclwe"
+  },
+  "n049": {
+   "truth": "qzxo",
+   "resnet_new": "qzxo",
+   "resnet_old": "qzxo",
+   "tess_now": "qzxo",
+   "tess_new": "qzxo"
+  },
+  "n050": {
+   "truth": "lhvq",
+   "resnet_new": "lhvq",
+   "resnet_old": "lhvq",
+   "tess_now": "lhvg",
+   "tess_new": "fhvg"
+  },
+  "n051": {
+   "truth": "ffryu",
+   "resnet_new": "ffruu",
+   "resnet_old": "ffruu",
+   "tess_now": "fFErya",
+   "tess_new": "ffryu"
+  },
+  "n052": {
+   "truth": "qhxj",
+   "resnet_new": "qhxj",
+   "resnet_old": "qhxj",
+   "tess_now": "qhxj",
+   "tess_new": "qhxj"
+  },
+  "n053": {
+   "truth": "hosy",
+   "resnet_new": "hosy",
+   "resnet_old": "hosy",
+   "tess_now": "hosy",
+   "tess_new": "hosy"
+  },
+  "n054": {
+   "truth": "btgs",
+   "resnet_new": "btgs",
+   "resnet_old": "btgs",
+   "tess_now": "btgs",
+   "tess_new": "btgs"
+  },
+  "n055": {
+   "truth": "tdiyu",
+   "resnet_new": "tdiyu",
+   "resnet_old": "tdiyu",
+   "tess_now": "tdiyu",
+   "tess_new": "tdiyu"
+  },
+  "n056": {
+   "truth": "pfnbb",
+   "resnet_new": "pfnbb",
+   "resnet_old": "pfnbb",
+   "tess_now": "pfnbb",
+   "tess_new": "pfnbb"
+  },
+  "n057": {
+   "truth": "heoog",
+   "resnet_new": "heoog",
+   "resnet_old": "heoog",
+   "tess_now": "heoog",
+   "tess_new": "heoog"
+  },
+  "n058": {
+   "truth": "xvhsa",
+   "resnet_new": "xvhsa",
+   "resnet_old": "xvhsa",
+   "tess_now": "xvhsa",
+   "tess_new": "xvhsa"
+  },
+  "n059": {
+   "truth": "hokco",
+   "resnet_new": "hokco",
+   "resnet_old": "hokco",
+   "tess_now": "hokco",
+   "tess_new": "hokco"
+  },
+  "n060": {
+   "truth": "qivcj",
+   "resnet_new": "qivcj",
+   "resnet_old": "qivcj",
+   "tess_now": "qivcij",
+   "tess_new": "qivcj"
+  },
+  "n061": {
+   "truth": "klham",
+   "resnet_new": "klham",
+   "resnet_old": "klham",
+   "tess_now": "kl1ham",
+   "tess_new": "klham"
+  },
+  "n062": {
+   "truth": "iyrv",
+   "resnet_new": "jyrv",
+   "resnet_old": "jyrv",
+   "tess_now": "fymv",
+   "tess_new": "jyrv"
+  },
+  "n063": {
+   "truth": "vjpdd",
+   "resnet_new": "vjpdd",
+   "resnet_old": "vjpdd",
+   "tess_now": "vipdd",
+   "tess_new": "vipdd"
+  },
+  "n064": {
+   "truth": "cdfs",
+   "resnet_new": "cdfs",
+   "resnet_old": "cdfs",
+   "tess_now": "cdfs",
+   "tess_new": "cdfs"
+  },
+  "n065": {
+   "truth": "ptouc",
+   "resnet_new": "ptouc",
+   "resnet_old": "ptouc",
+   "tess_now": "ptouc",
+   "tess_new": "ptouc"
+  },
+  "n066": {
+   "truth": "xykl",
+   "resnet_new": "xykl",
+   "resnet_old": "xykl",
+   "tess_now": "xykl",
+   "tess_new": "xykl"
+  },
+  "n067": {
+   "truth": "xnaw",
+   "resnet_new": "xnaw",
+   "resnet_old": "xnaw",
+   "tess_now": "XxXnaw",
+   "tess_new": "xnaw"
+  },
+  "n068": {
+   "truth": "vlpc",
+   "resnet_new": "vlpc",
+   "resnet_old": "vlpc",
+   "tess_now": "vipc",
+   "tess_new": "vipc"
+  },
+  "n069": {
+   "truth": "mhnnb",
+   "resnet_new": "mhnnb",
+   "resnet_old": "mhnnb",
+   "tess_now": "mhnnb",
+   "tess_new": "mhnnb"
+  },
+  "n070": {
+   "truth": "kpkbq",
+   "resnet_new": "kpkbq",
+   "resnet_old": "kpkbq",
+   "tess_now": "kpkbagqg",
+   "tess_new": "kpkbg"
+  },
+  "n071": {
+   "truth": "keail",
+   "resnet_new": "keail",
+   "resnet_old": "keai",
+   "tess_now": "keail",
+   "tess_new": "keail"
+  },
+  "n072": {
+   "truth": "tics",
+   "resnet_new": "tics",
+   "resnet_old": "tics",
+   "tess_now": "SWER",
+   "tess_new": "tics"
+  },
+  "n073": {
+   "truth": "bpucn",
+   "resnet_new": "bpucn",
+   "resnet_old": "bpucn",
+   "tess_now": "bpucn",
+   "tess_new": "bpucnh"
+  },
+  "n074": {
+   "truth": "rjun",
+   "resnet_new": "rjun",
+   "resnet_old": "rjun",
+   "tess_now": "rjun",
+   "tess_new": "rjiun"
+  },
+  "n075": {
+   "truth": "drxgp",
+   "resnet_new": "drxgp",
+   "resnet_old": "drxgp",
+   "tess_now": "drxgp",
+   "tess_new": "drxgp"
+  },
+  "n076": {
+   "truth": "sbhwg",
+   "resnet_new": "sbhwg",
+   "resnet_old": "sbhwg",
+   "tess_now": "sbhwg",
+   "tess_new": "sbhwyg"
+  },
+  "n077": {
+   "truth": "susi",
+   "resnet_new": "susi",
+   "resnet_old": "susi",
+   "tess_now": "susi",
+   "tess_new": "susi"
+  },
+  "n078": {
+   "truth": "xsxh",
+   "resnet_new": "xsxh",
+   "resnet_old": "xsxh",
+   "tess_now": "xsxh",
+   "tess_new": "xsxh"
+  },
+  "n079": {
+   "truth": "kvxfl",
+   "resnet_new": "kvxfl",
+   "resnet_old": "kvxfl",
+   "tess_now": "kvxfl",
+   "tess_new": "kvxfl"
+  },
+  "n080": {
+   "truth": "zmbrw",
+   "resnet_new": "zmbrw",
+   "resnet_old": "zmbrw",
+   "tess_now": "zmbrw",
+   "tess_new": "zmbrw"
+  },
+  "n081": {
+   "truth": "jezd",
+   "resnet_new": "jezd",
+   "resnet_old": "jezd",
+   "tess_now": "jezd",
+   "tess_new": "jezd"
+  },
+  "n082": {
+   "truth": "avdk",
+   "resnet_new": "avdk",
+   "resnet_old": "avdk",
+   "tess_now": "avdk",
+   "tess_new": "avdk"
+  },
+  "n083": {
+   "truth": "jlzdd",
+   "resnet_new": "jlzdd",
+   "resnet_old": "jlzdd",
+   "tess_now": "j1zdd",
+   "tess_new": "jrzdd"
+  },
+  "n084": {
+   "truth": "zryw",
+   "resnet_new": "zryw",
+   "resnet_old": "zryw",
+   "tess_now": "zryw",
+   "tess_new": "zryw"
+  },
+  "n085": {
+   "truth": "zugpb",
+   "resnet_new": "zugpb",
+   "resnet_old": "zugpb",
+   "tess_now": "zugpb",
+   "tess_new": "zugphb"
+  },
+  "n086": {
+   "truth": "ugxq",
+   "resnet_new": "ugxq",
+   "resnet_old": "ugxq",
+   "tess_now": "ugxgq",
+   "tess_new": "ugxq"
+  },
+  "n087": {
+   "truth": "dgsb",
+   "resnet_new": "dgsb",
+   "resnet_old": "dgsb",
+   "tess_now": "dgshb",
+   "tess_new": "dgsb"
+  },
+  "n088": {
+   "truth": "mwoc",
+   "resnet_new": "mwoo",
+   "resnet_old": "mwoo",
+   "tess_now": "mwoc",
+   "tess_new": "mwoc"
+  },
+  "n089": {
+   "truth": "xeys",
+   "resnet_new": "xeys",
+   "resnet_old": "xeys",
+   "tess_now": "xeys",
+   "tess_new": "xeys"
+  },
+  "n090": {
+   "truth": "ggamk",
+   "resnet_new": "ggamk",
+   "resnet_old": "ggamk",
+   "tess_now": "ggamk",
+   "tess_new": "ggamk"
+  },
+  "n091": {
+   "truth": "qjxkp",
+   "resnet_new": "qjxkp",
+   "resnet_old": "qjxkp",
+   "tess_now": "qjxkp",
+   "tess_new": "qgixkp"
+  },
+  "n092": {
+   "truth": "qrvsp",
+   "resnet_new": "qrvsp",
+   "resnet_old": "qrvsp",
+   "tess_now": "qrvsp",
+   "tess_new": "qrvsp"
+  },
+  "n093": {
+   "truth": "mpzw",
+   "resnet_new": "mpzw",
+   "resnet_old": "mpzw",
+   "tess_now": "mpzw",
+   "tess_new": "mpzw"
+  },
+  "n094": {
+   "truth": "lelcj",
+   "resnet_new": "lelcj",
+   "resnet_old": "lelcj",
+   "tess_now": "lelcj",
+   "tess_new": "lelcj"
+  },
+  "n095": {
+   "truth": "bjqf",
+   "resnet_new": "bjqf",
+   "resnet_old": "bjqf",
+   "tess_now": "bjqf",
+   "tess_new": "bjqf"
+  },
+  "n096": {
+   "truth": "luqxp",
+   "resnet_new": "luqxp",
+   "resnet_old": "luqxp",
+   "tess_now": "lugxp",
+   "tess_new": "fugxp"
+  },
+  "n097": {
+   "truth": "vsziu",
+   "resnet_new": "vsziu",
+   "resnet_old": "vsziu",
+   "tess_now": "vsziu",
+   "tess_new": "vsziu"
+  },
+  "n098": {
+   "truth": "ttgq",
+   "resnet_new": "ttgq",
+   "resnet_old": "ttgq",
+   "tess_now": "ttggq",
+   "tess_new": "ttggqg"
+  },
+  "n099": {
+   "truth": "ikrg",
+   "resnet_new": "ikrg",
+   "resnet_old": "ikrg",
+   "tess_now": "ikrg",
+   "tess_new": "ikrg"
+  }
+ }
+}

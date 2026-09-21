@@ -1,0 +1,370 @@
+[
+ {
+  "params": "p1-仅白名单",
+  "variant": "bin156",
+  "hit": 17,
+  "n": 20,
+  "acc": 0.85,
+  "avgMs": 8.5,
+  "misses": [
+   "c01:fevitf≠fcvtf",
+   "c11:jgvec≠jgvc",
+   "c17:ohf≠ohlf"
+  ]
+ },
+ {
+  "params": "p1-仅白名单",
+  "variant": "up2bin",
+  "hit": 17,
+  "n": 20,
+  "acc": 0.85,
+  "avgMs": 8.55,
+  "misses": [
+   "c01:fcvitf≠fcvtf",
+   "c13:canu≠oanu",
+   "c17:ohf≠ohlf"
+  ]
+ },
+ {
+  "params": "p1-仅白名单",
+  "variant": "up2",
+  "hit": 17,
+  "n": 20,
+  "acc": 0.85,
+  "avgMs": 8.75,
+  "misses": [
+   "c01:fcwvtf≠fcvtf",
+   "c13:canu≠oanu",
+   "c17:ohf≠ohlf"
+  ]
+ },
+ {
+  "params": "p3-白名单+PSM7",
+  "variant": "up2",
+  "hit": 17,
+  "n": 20,
+  "acc": 0.85,
+  "avgMs": 9.8,
+  "misses": [
+   "c01:fcwvtf≠fcvtf",
+   "c13:canu≠oanu",
+   "c17:ohf≠ohlf"
+  ]
+ },
+ {
+  "params": "p3-白名单+PSM7",
+  "variant": "bin156",
+  "hit": 17,
+  "n": 20,
+  "acc": 0.85,
+  "avgMs": 10,
+  "misses": [
+   "c01:fevitf≠fcvtf",
+   "c11:jgvec≠jgvc",
+   "c17:ohf≠ohlf"
+  ]
+ },
+ {
+  "params": "p3-白名单+PSM7",
+  "variant": "up2bin",
+  "hit": 17,
+  "n": 20,
+  "acc": 0.85,
+  "avgMs": 10.1,
+  "misses": [
+   "c01:fcvitf≠fcvtf",
+   "c13:canu≠oanu",
+   "c17:ohf≠ohlf"
+  ]
+ },
+ {
+  "params": "p1-仅白名单",
+  "variant": "up4otsupad",
+  "hit": 17,
+  "n": 20,
+  "acc": 0.85,
+  "avgMs": 10.7,
+  "misses": [
+   "c03:agjnf≠qgjnf",
+   "c13:ocoanu≠oanu",
+   "c17:ohf≠ohlf"
+  ]
+ },
+ {
+  "params": "p0-无参数",
+  "variant": "up4otsupad",
+  "hit": 17,
+  "n": 20,
+  "acc": 0.85,
+  "avgMs": 10.9,
+  "misses": [
+   "c03:agjnf≠qgjnf",
+   "c13:ocoanu≠oanu",
+   "c17:ohf≠ohlf"
+  ]
+ },
+ {
+  "params": "p3-白名单+PSM7",
+  "variant": "up4otsupad",
+  "hit": 17,
+  "n": 20,
+  "acc": 0.85,
+  "avgMs": 11.2,
+  "misses": [
+   "c03:agjnf≠qgjnf",
+   "c13:ocoanu≠oanu",
+   "c17:ohf≠ohlf"
+  ]
+ },
+ {
+  "params": "p0-无参数",
+  "variant": "up2bin",
+  "hit": 17,
+  "n": 20,
+  "acc": 0.85,
+  "avgMs": 12.8,
+  "misses": [
+   "c01:fcvitf≠fcvtf",
+   "c13:canu≠oanu",
+   "c17:ohf≠ohlf"
+  ]
+ },
+ {
+  "params": "p1-仅白名单",
+  "variant": "raw",
+  "hit": 16,
+  "n": 20,
+  "acc": 0.8,
+  "avgMs": 7.5,
+  "misses": [
+   "c01:fciwtf≠fcvtf",
+   "c11:jgvec≠jgvc",
+   "c13:ocanu≠oanu",
+   "c17:ohf≠ohlf"
+  ]
+ },
+ {
+  "params": "p3-白名单+PSM7",
+  "variant": "raw",
+  "hit": 16,
+  "n": 20,
+  "acc": 0.8,
+  "avgMs": 9.25,
+  "misses": [
+   "c01:fciwtf≠fcvtf",
+   "c11:jgvec≠jgvc",
+   "c13:ocanu≠oanu",
+   "c17:ohf≠ohlf"
+  ]
+ },
+ {
+  "params": "p1-仅白名单",
+  "variant": "up3",
+  "hit": 16,
+  "n": 20,
+  "acc": 0.8,
+  "avgMs": 10.6,
+  "misses": [
+   "c01:fewtrl≠fcvtf",
+   "c11:fgv≠jgvc",
+   "c13:coanu≠oanu",
+   "c17:ohf≠ohlf"
+  ]
+ },
+ {
+  "params": "p0-无参数",
+  "variant": "raw",
+  "hit": 16,
+  "n": 20,
+  "acc": 0.8,
+  "avgMs": 12,
+  "misses": [
+   "c01:feitf≠fcvtf",
+   "c11:jgvec≠jgvc",
+   "c13:ocanu≠oanu",
+   "c17:ohif≠ohlf"
+  ]
+ },
+ {
+  "params": "p3-白名单+PSM7",
+  "variant": "up3",
+  "hit": 16,
+  "n": 20,
+  "acc": 0.8,
+  "avgMs": 12.1,
+  "misses": [
+   "c01:fewtrl≠fcvtf",
+   "c11:fgv≠jgvc",
+   "c13:coanu≠oanu",
+   "c17:ohf≠ohlf"
+  ]
+ },
+ {
+  "params": "p0-无参数",
+  "variant": "up2",
+  "hit": 16,
+  "n": 20,
+  "acc": 0.8,
+  "avgMs": 12.85,
+  "misses": [
+   "c01:fcwvtf≠fcvtf",
+   "c04:txxju≠txju",
+   "c13:canu≠oanu",
+   "c17:ohf≠ohlf"
+  ]
+ },
+ {
+  "params": "p0-无参数",
+  "variant": "bin156",
+  "hit": 16,
+  "n": 20,
+  "acc": 0.8,
+  "avgMs": 13.1,
+  "misses": [
+   "c01:fevitf≠fcvtf",
+   "c04:etxju≠txju",
+   "c11:jgvec≠jgvc",
+   "c17:ohif≠ohlf"
+  ]
+ },
+ {
+  "params": "p0-无参数",
+  "variant": "up3",
+  "hit": 16,
+  "n": 20,
+  "acc": 0.8,
+  "avgMs": 15.15,
+  "misses": [
+   "c01:fcwet≠fcvtf",
+   "c11:fgvv≠jgvc",
+   "c13:coanu≠oanu",
+   "c17:ohf≠ohlf"
+  ]
+ },
+ {
+  "params": "p2-白名单+PSM8",
+  "variant": "up2bin",
+  "hit": 12,
+  "n": 20,
+  "acc": 0.6,
+  "avgMs": 8.2,
+  "misses": [
+   "c00:yvecew≠yvcew",
+   "c01:fevtf≠fcvtf",
+   "c03:agjnf≠qgjnf",
+   "c08:kwwke≠kwwkc",
+   "c11:jgve≠jgvc",
+   "c13:canu≠oanu",
+   "c17:ohf≠ohlf",
+   "c18:tbrmw≠rbrmw"
+  ]
+ },
+ {
+  "params": "p2-白名单+PSM8",
+  "variant": "bin156",
+  "hit": 10,
+  "n": 20,
+  "acc": 0.5,
+  "avgMs": 9.35,
+  "misses": [
+   "c00:yvecew≠yvcew",
+   "c01:fevet≠fcvtf",
+   "c03:agjnf≠qgjnf",
+   "c04:exju≠txju",
+   "c08:kwwke≠kwwkc",
+   "c11:jgve≠jgvc",
+   "c13:canu≠oanu",
+   "c16:mtww≠mutww",
+   "c17:ohf≠ohlf",
+   "c18:thrmw≠rbrmw"
+  ]
+ },
+ {
+  "params": "p2-白名单+PSM8",
+  "variant": "up4otsupad",
+  "hit": 9,
+  "n": 20,
+  "acc": 0.45,
+  "avgMs": 8.8,
+  "misses": [
+   "c00:yveew≠yvcew",
+   "c01:fevet≠fcvtf",
+   "c03:aginf≠qgjnf",
+   "c04:exju≠txju",
+   "c08:kwwke≠kwwkc",
+   "c11:jgve≠jgvc",
+   "c13:canu≠oanu",
+   "c16:matww≠mutww",
+   "c17:ent≠ohlf",
+   "c18:ormw≠rbrmw",
+   "c19:who≠whto"
+  ]
+ },
+ {
+  "params": "p2-白名单+PSM8",
+  "variant": "raw",
+  "hit": 9,
+  "n": 20,
+  "acc": 0.45,
+  "avgMs": 9.4,
+  "misses": [
+   "c00:yvecew≠yvcew",
+   "c01:eel≠fcvtf",
+   "c03:i≠qgjnf",
+   "c04:xdu≠txju",
+   "c08:kwwke≠kwwkc",
+   "c10:isyiey≠fsyeu",
+   "c11:jgve≠jgvc",
+   "c12:u≠riixo",
+   "c13:ocanu≠oanu",
+   "c17:obi≠ohlf",
+   "c18:tbrmw≠rbrmw"
+  ]
+ },
+ {
+  "params": "p2-白名单+PSM8",
+  "variant": "up2",
+  "hit": 7,
+  "n": 20,
+  "acc": 0.35,
+  "avgMs": 10.65,
+  "misses": [
+   "c00:yvecew≠yvcew",
+   "c01:ewer≠fcvtf",
+   "c03:saint≠qgjnf",
+   "c04:tl≠txju",
+   "c08:kwwke≠kwwkc",
+   "c10:yeu≠fsyeu",
+   "c11:jgve≠jgvc",
+   "c12:iiwe≠riixo",
+   "c13:canu≠oanu",
+   "c14:waal≠ugal",
+   "c16:el≠mutww",
+   "c17:ohl≠ohlf",
+   "c18:brmw≠rbrmw"
+  ]
+ },
+ {
+  "params": "p2-白名单+PSM8",
+  "variant": "up3",
+  "hit": 7,
+  "n": 20,
+  "acc": 0.35,
+  "avgMs": 11.45,
+  "misses": [
+   "c00:yvecew≠yvcew",
+   "c01:rewer≠fcvtf",
+   "c03:aainft≠qgjnf",
+   "c04:la≠txju",
+   "c08:kwwke≠kwwkc",
+   "c10:yeu≠fsyeu",
+   "c11:jgve≠jgvc",
+   "c12:ik≠riixo",
+   "c13:ocanu≠oanu",
+   "c14:waal≠ugal",
+   "c16:tw≠mutww",
+   "c17:oh≠ohlf",
+   "c18:brmw≠rbrmw"
+  ]
+ }
+]

@@ -1,0 +1,44 @@
+MIT License
+
+Copyright (c) 2026 humble26
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+第三方组件
+
+本项目的部分内容来自以下项目，其原始许可如下。改造后的代码整体以 MIT 发布，
+但下列组件的版权归各自作者所有：
+
+1. nn_model.onnx（ResNet-20 验证码识别模型）
+   原始项目：PhotonQuantum/jaccount-captcha-solver
+   License: Apache License 2.0
+   https://github.com/PhotonQuantum/jaccount-captcha-solver
+
+2. ONNX Runtime Web v1.16.3
+   Copyright (c) Microsoft Corporation
+   License: MIT
+   https://github.com/microsoft/onnxruntime
+
+3. 用户脚本骨架（Tesseract 版）
+   作者：danyang685
+   License: MIT
+
+分发模型权重时请一并保留上述归属信息。

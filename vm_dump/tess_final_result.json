@@ -1,0 +1,167 @@
+{
+ "warmupMs": 141,
+ "hit": 17,
+ "n": 20,
+ "rows": [
+  {
+   "id": "c00",
+   "truth": "yvcew",
+   "pred": "yvcew",
+   "ms": 39,
+   "conf": 71,
+   "ok": true
+  },
+  {
+   "id": "c01",
+   "truth": "fcvtf",
+   "pred": "fevitf",
+   "ms": 8,
+   "conf": 65,
+   "ok": false
+  },
+  {
+   "id": "c02",
+   "truth": "ymoad",
+   "pred": "ymoad",
+   "ms": 9,
+   "conf": 91,
+   "ok": true
+  },
+  {
+   "id": "c03",
+   "truth": "qgjnf",
+   "pred": "qgjnf",
+   "ms": 9,
+   "conf": 69,
+   "ok": true
+  },
+  {
+   "id": "c04",
+   "truth": "txju",
+   "pred": "txju",
+   "ms": 7,
+   "conf": 62,
+   "ok": true
+  },
+  {
+   "id": "c05",
+   "truth": "fomr",
+   "pred": "fomr",
+   "ms": 9,
+   "conf": 89,
+   "ok": true
+  },
+  {
+   "id": "c06",
+   "truth": "bbmbh",
+   "pred": "bbmbh",
+   "ms": 9,
+   "conf": 89,
+   "ok": true
+  },
+  {
+   "id": "c07",
+   "truth": "wxmh",
+   "pred": "wxmh",
+   "ms": 9,
+   "conf": 37,
+   "ok": true
+  },
+  {
+   "id": "c08",
+   "truth": "kwwkc",
+   "pred": "kwwkc",
+   "ms": 7,
+   "conf": 83,
+   "ok": true
+  },
+  {
+   "id": "c09",
+   "truth": "afex",
+   "pred": "afex",
+   "ms": 7,
+   "conf": 86,
+   "ok": true
+  },
+  {
+   "id": "c10",
+   "truth": "fsyeu",
+   "pred": "fsyeu",
+   "ms": 9,
+   "conf": 86,
+   "ok": true
+  },
+  {
+   "id": "c11",
+   "truth": "jgvc",
+   "pred": "jgvec",
+   "ms": 6,
+   "conf": 45,
+   "ok": false
+  },
+  {
+   "id": "c12",
+   "truth": "riixo",
+   "pred": "riixo",
+   "ms": 8,
+   "conf": 90,
+   "ok": true
+  },
+  {
+   "id": "c13",
+   "truth": "oanu",
+   "pred": "oanu",
+   "ms": 8,
+   "conf": 73,
+   "ok": true
+  },
+  {
+   "id": "c14",
+   "truth": "ugal",
+   "pred": "ugal",
+   "ms": 7,
+   "conf": 89,
+   "ok": true
+  },
+  {
+   "id": "c15",
+   "truth": "odeb",
+   "pred": "odeb",
+   "ms": 7,
+   "conf": 82,
+   "ok": true
+  },
+  {
+   "id": "c16",
+   "truth": "mutww",
+   "pred": "mutww",
+   "ms": 7,
+   "conf": 80,
+   "ok": true
+  },
+  {
+   "id": "c17",
+   "truth": "ohlf",
+   "pred": "ohf",
+   "ms": 9,
+   "conf": 0,
+   "ok": false
+  },
+  {
+   "id": "c18",
+   "truth": "rbrmw",
+   "pred": "rbrmw",
+   "ms": 6,
+   "conf": 72,
+   "ok": true
+  },
+  {
+   "id": "c19",
+   "truth": "whto",
+   "pred": "whto",
+   "ms": 7,
+   "conf": 87,
+   "ok": true
+  }
+ ]
+}

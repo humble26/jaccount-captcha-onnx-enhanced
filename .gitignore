@@ -1,0 +1,54 @@
+# ---- Python 虚拟环境（125 MB，绝不上传） ----
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# ---- 依赖与工具缓存 ----
+node_modules/
+.pytest_cache/
+
+# ---- 大体积第三方二进制（可用脚本重新下载，见 tools/fetch_assets.py） ----
+# ORT 运行时 JS：570 KB，含在 vm_dump/ort.min.js，可由 npm 取得
+vm_dump/ort.min.js
+# 扩展构建产物里的 wasm：10.9 MB，由 npm 的 onnxruntime-web 取得
+extension-build/**/assets/ort-wasm-simd.wasm
+
+# ---- 打包产物（体积大且可由脚本重建） ----
+*.zip
+
+# ---- 扩展构建产物：整体由 extension-src/build.py 重建，不入库 ----
+# 这样模型只保留 vm_dump/nn_model.onnx 一份，避免 1.1 MB 的重复提交
+extension-build/
+
+# ---- 调试中间产物：对照图 / 盲测页面 / 反混淆字符串 ----
+vm_dump/blind2/
+vm_dump/blind3/
+vm_dump/webcheck/
+vm_dump/blind_sheet.png
+vm_dump/raw_strings.txt
+vm_dump/raw_strings2.txt
+
+# ---- 从浏览器导出的**他人**用户脚本，不属于本项目 ----
+# （调试时用于确认加载顺序，涉及第三方作者版权，不随本项目分发）
+vm_dump/00_*.user.js
+vm_dump/01_*.user.js
+vm_dump/02_*.user.js
+vm_dump/03_*.user.js
+vm_dump/04_*.user.js
+
+# ---- 第三方参考实现副本：不随本项目分发 ----
+# 这些是调试时下载来逐行比对的他人源码，没有附带许可声明，
+# 原样收录进公开仓库有版权风险。README 里给出上游地址即可。
+# 需要本地比对时自行下载到该目录（脚本会读它，但仓库不含它）。
+vm_dump/ref/
+
+# ---- 编辑器 / 系统 ----
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---- 本地工作区数据（不是临时缓存，但属本地状态，不入库） ----
+.workbuddy/
