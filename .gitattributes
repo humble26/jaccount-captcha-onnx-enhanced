@@ -1,0 +1,23 @@
+# 统一换行符为 LF，避免 Windows 提交时混入 CRLF。
+# 提交时那些 "LF will be replaced by CRLF" 警告就是在提示这个问题：
+# 仓库里存 LF、检出时变 CRLF，会让 diff、哈希、跨平台协作都变得不可预期。
+* text=auto eol=lf
+
+# 二进制文件不做换行符转换（否则会损坏文件）
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.onnx binary
+*.wasm binary
+*.zip binary
+
+# 这些后缀确认按文本处理，便于 diff
+*.js   text eol=lf
+*.py   text eol=lf
+*.json text eol=lf
+*.html text eol=lf
+*.md   text eol=lf
+*.txt  text eol=lf
+*.user.js text eol=lf
