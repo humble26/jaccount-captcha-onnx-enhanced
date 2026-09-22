@@ -28,6 +28,22 @@ vm_dump/webcheck/
 vm_dump/blind_sheet.png
 vm_dump/raw_strings.txt
 vm_dump/raw_strings2.txt
+vm_dump/backbone_feats.npz
+# 复审/调试过程产生的联络表与 logits 导出（可由 analysis/_audit_*.py 重新生成）
+vm_dump/audit_sheets/
+# 本地一次性运维脚本（路径清理、归档打包等），与项目本身无关
+vm_dump/_local/
+
+# ---- 预处理与 Tesseract 消融的对照图（580 张，可由脚本重建） ----
+# 评测只需要 samples/ + samples2/ + holdout/（220 张人工标注）
+# 与 new300/（300 张已核对样本），其余为中间对照，不进仓库。
+vm_dump/all_A_original/
+vm_dump/all_B_bin156/
+vm_dump/hold_A_original/
+vm_dump/hold_B_bin156/
+vm_dump/tess_A_original/
+vm_dump/tess_B_prepared/
+vm_dump/ablation/
 
 # ---- 从浏览器导出的**他人**用户脚本，不属于本项目 ----
 # （调试时用于确认加载顺序，涉及第三方作者版权，不随本项目分发）
