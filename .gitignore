@@ -59,6 +59,13 @@ vm_dump/04_*.user.js
 # 需要本地比对时自行下载到该目录（脚本会读它，但仓库不含它）。
 vm_dump/ref/
 
+# ---- 实验脚本的 stdout 记录与源码切片导出（脚本可重跑，属中间产物） ----
+vm_dump/*_out.txt
+vm_dump/*_src.txt
+vm_dump/*_funcs.txt
+vm_dump/sampling_plan.json
+vm_dump/refactor_eval.json
+
 # ---- 编辑器 / 系统 ----
 .vscode/
 .idea/
