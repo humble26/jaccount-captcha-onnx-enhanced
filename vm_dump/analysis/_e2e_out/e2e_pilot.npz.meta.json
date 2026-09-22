@@ -1,0 +1,101 @@
+{
+ "keys": [
+  "linear1.weight",
+  "linear1.bias",
+  "linear2.weight",
+  "linear2.bias",
+  "linear3.weight",
+  "linear3.bias",
+  "linear4.weight",
+  "linear4.bias",
+  "linear5.weight",
+  "linear5.bias",
+  "onnx::Conv_224",
+  "onnx::Conv_225",
+  "onnx::Conv_227",
+  "onnx::Conv_228",
+  "onnx::Conv_230",
+  "onnx::Conv_231",
+  "onnx::Conv_233",
+  "onnx::Conv_234",
+  "onnx::Conv_236",
+  "onnx::Conv_237",
+  "onnx::Conv_239",
+  "onnx::Conv_240",
+  "onnx::Conv_242",
+  "onnx::Conv_243",
+  "onnx::Conv_245",
+  "onnx::Conv_246",
+  "onnx::Conv_248",
+  "onnx::Conv_249",
+  "onnx::Conv_251",
+  "onnx::Conv_252",
+  "onnx::Conv_254",
+  "onnx::Conv_255",
+  "onnx::Conv_257",
+  "onnx::Conv_258",
+  "onnx::Conv_260",
+  "onnx::Conv_261",
+  "onnx::Conv_263",
+  "onnx::Conv_264",
+  "onnx::Conv_266",
+  "onnx::Conv_267",
+  "onnx::Conv_269",
+  "onnx::Conv_270",
+  "onnx::Conv_272",
+  "onnx::Conv_273",
+  "onnx::Conv_275",
+  "onnx::Conv_276",
+  "onnx::Conv_278",
+  "onnx::Conv_279",
+  "onnx::Conv_281",
+  "onnx::Conv_282",
+  "onnx::Conv_284",
+  "onnx::Conv_285"
+ ],
+ "suffix": "e2e_pilot",
+ "hist": [
+  {
+   "step": 10,
+   "loss": 94.8763192708416,
+   "acc4_train": 0.125,
+   "acc4_hold": 0.07,
+   "best": true
+  },
+  {
+   "step": 20,
+   "loss": 6.52570796171848,
+   "acc4_train": 0.8166666666666667,
+   "acc4_hold": 0.73,
+   "best": true
+  },
+  {
+   "step": 30,
+   "loss": 2.5108726976565796,
+   "acc4_train": 0.9583333333333334,
+   "acc4_hold": 0.9,
+   "best": true
+  },
+  {
+   "step": 40,
+   "loss": 1.289935372715041,
+   "acc4_train": 0.9833333333333333,
+   "acc4_hold": 0.95,
+   "best": true
+  },
+  {
+   "step": 50,
+   "loss": 0.5269188309215821,
+   "acc4_train": 0.9916666666666667,
+   "acc4_hold": 0.96,
+   "best": true
+  },
+  {
+   "step": 60,
+   "loss": 0.5665445676854022,
+   "acc4_train": 1.0,
+   "acc4_hold": 0.97,
+   "best": true
+  }
+ ]
+}

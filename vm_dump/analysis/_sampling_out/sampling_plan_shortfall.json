@@ -1,0 +1,58 @@
+[
+ {
+  "char": "z",
+  "have": 3,
+  "target": 20,
+  "need_more": 17,
+  "pos": 4
+ },
+ {
+  "char": "y",
+  "have": 8,
+  "target": 20,
+  "need_more": 12,
+  "pos": 4
+ },
+ {
+  "char": "x",
+  "have": 11,
+  "target": 20,
+  "need_more": 9,
+  "pos": 4
+ },
+ {
+  "char": "g",
+  "have": 8,
+  "target": 20,
+  "need_more": 12,
+  "pos": 4
+ },
+ {
+  "char": "o",
+  "have": 9,
+  "target": 20,
+  "need_more": 11,
+  "pos": 4
+ },
+ {
+  "char": "c",
+  "have": 12,
+  "target": 20,
+  "need_more": 8,
+  "pos": 4
+ },
+ {
+  "char": "w",
+  "have": 13,
+  "target": 20,
+  "need_more": 7,
+  "pos": 4
+ },
+ {
+  "char": "u",
+  "have": 12,
+  "target": 20,
+  "need_more": 8,
+  "pos": 4
+ }
+]

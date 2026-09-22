@@ -1,3 +1,9 @@
+// ---- 路径基准：优先环境变量，否则按本文件位置推导 ----
+// _REPO=仓库根  _VD=vm_dump  _ORTWS=onnxruntime-web 的 node_modules 位置
+const _REPO = process.env.PROD_WS || require('path').resolve(__dirname, '..', '..');
+const _VD = require('path').join(_REPO, 'vm_dump');
+const _ORTWS = process.env.ORT_NODE_WORKSPACE || require('path').join(_REPO, 'node_modules');
+// --------------------------------------------------------
 /**
  * 验证 4.4.2 的诊断能力：在沙箱里**故意制造**各类失败，
  * 检查用户看到的 placeholder 是否包含可定位的具体原因。
@@ -13,7 +19,7 @@
  */
 const fs = require('fs');
 const path = require('path');
-const WS = 'C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40';
+const WS = _REPO;
 const src = fs.readFileSync(path.join(WS, 'jaccount-captcha-onnx-enhanced.user.js'), 'utf8');
 const marker = '(function () {';
 let body = src.slice(src.indexOf(marker));

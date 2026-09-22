@@ -1,0 +1,133 @@
+{
+ "keys": [
+  "linear1.weight",
+  "linear1.bias",
+  "linear2.weight",
+  "linear2.bias",
+  "linear3.weight",
+  "linear3.bias",
+  "linear4.weight",
+  "linear4.bias",
+  "linear5.weight",
+  "linear5.bias",
+  "onnx::Conv_224",
+  "onnx::Conv_225",
+  "onnx::Conv_227",
+  "onnx::Conv_228",
+  "onnx::Conv_230",
+  "onnx::Conv_231",
+  "onnx::Conv_233",
+  "onnx::Conv_234",
+  "onnx::Conv_236",
+  "onnx::Conv_237",
+  "onnx::Conv_239",
+  "onnx::Conv_240",
+  "onnx::Conv_242",
+  "onnx::Conv_243",
+  "onnx::Conv_245",
+  "onnx::Conv_246",
+  "onnx::Conv_248",
+  "onnx::Conv_249",
+  "onnx::Conv_251",
+  "onnx::Conv_252",
+  "onnx::Conv_254",
+  "onnx::Conv_255",
+  "onnx::Conv_257",
+  "onnx::Conv_258",
+  "onnx::Conv_260",
+  "onnx::Conv_261",
+  "onnx::Conv_263",
+  "onnx::Conv_264",
+  "onnx::Conv_266",
+  "onnx::Conv_267",
+  "onnx::Conv_269",
+  "onnx::Conv_270",
+  "onnx::Conv_272",
+  "onnx::Conv_273",
+  "onnx::Conv_275",
+  "onnx::Conv_276",
+  "onnx::Conv_278",
+  "onnx::Conv_279",
+  "onnx::Conv_281",
+  "onnx::Conv_282",
+  "onnx::Conv_284",
+  "onnx::Conv_285"
+ ],
+ "suffix": "e2e_final_extra_best_hold4",
+ "hist": [
+  {
+   "step": 25,
+   "loss": 0.5080937493406525,
+   "acc4_train": 0.9857142857142858,
+   "acc4_hold": 0.98,
+   "best": true
+  },
+  {
+   "step": 50,
+   "loss": 0.04085460593920685,
+   "acc4_train": 0.9880952380952381,
+   "acc4_hold": 0.98
+  },
+  {
+   "step": 75,
+   "loss": 0.04201713878591208,
+   "acc4_train": 0.9904761904761905,
+   "acc4_hold": 0.98
+  },
+  {
+   "step": 100,
+   "loss": 0.2679618091640119,
+   "acc4_train": 0.9904761904761905,
+   "acc4_hold": 0.98
+  },
+  {
+   "step": 125,
+   "loss": 0.0036272403930241695,
+   "acc4_train": 0.9904761904761905,
+   "acc4_hold": 0.98
+  },
+  {
+   "step": 150,
+   "loss": 0.014125468991604896,
+   "acc4_train": 0.9904761904761905,
+   "acc4_hold": 0.98
+  },
+  {
+   "step": 175,
+   "loss": 0.12395556368540184,
+   "acc4_train": 0.9928571428571429,
+   "acc4_hold": 0.98
+  },
+  {
+   "step": 200,
+   "loss": 0.0037902400284458727,
+   "acc4_train": 0.9928571428571429,
+   "acc4_hold": 0.98
+  },
+  {
+   "step": 225,
+   "loss": 0.004485878138923144,
+   "acc4_train": 0.9976190476190476,
+   "acc4_hold": 0.98
+  },
+  {
+   "step": 250,
+   "loss": 0.0054910269843043815,
+   "acc4_train": 0.9976190476190476,
+   "acc4_hold": 0.98
+  },
+  {
+   "step": 275,
+   "loss": 0.008488993149684067,
+   "acc4_train": 0.9976190476190476,
+   "acc4_hold": 0.98
+  },
+  {
+   "step": 300,
+   "loss": 0.0017706326560854892,
+   "acc4_train": 0.9976190476190476,
+   "acc4_hold": 0.98
+  }
+ ],
+ "best_hold_acc4": 0.98
+}

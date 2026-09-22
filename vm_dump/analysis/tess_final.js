@@ -1,9 +1,15 @@
+// ---- 路径基准：优先环境变量，否则按本文件位置推导 ----
+// _REPO=仓库根  _VD=vm_dump  _ORTWS=onnxruntime-web 的 node_modules 位置
+const _REPO = process.env.PROD_WS || require('path').resolve(__dirname, '..', '..');
+const _VD = require('path').join(_REPO, 'vm_dump');
+const _ORTWS = process.env.ORT_NODE_WORKSPACE || require('path').join(_REPO, 'node_modules');
+// --------------------------------------------------------
 /** 用脚本最终采用的配置跑逐样本结果：156二值化 + 白名单 + PSM7，worker 复用 */
 const fs = require('fs');
 const path = require('path');
 const Tesseract = require('tesseract.js');
 
-const W = 'C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump';
+const W = _VD;
 const DIR = path.join(W, 'ablation', 'bin156');
 const TRUTH = JSON.parse(fs.readFileSync(path.join(W, 'ground_truth.json'), 'utf8'));
 const clean = s => (s || '').toLowerCase().replace(/[^a-z]/g, '');

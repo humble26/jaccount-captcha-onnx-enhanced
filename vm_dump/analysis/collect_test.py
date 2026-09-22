@@ -1,3 +1,12 @@
+import os as _os
+import sys as _sys
+_REPO = _os.environ.get("PROD_WS") or _os.path.dirname(
+    _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))))
+_VD = _os.path.join(_REPO, "vm_dump")
+_NODE_MODULES = _os.environ.get("ORT_NODE_WORKSPACE") or _os.path.join(_REPO, "node_modules")
+_NODE_BIN = _os.environ.get("NODE_BIN") or "node"
+_PY_BIN = _os.environ.get("PY_BIN") or _sys.executable
+
 import os, time, base64, urllib.request, socket, sys, warnings
 import numpy as np
 import onnxruntime as rt
@@ -7,7 +16,7 @@ warnings.filterwarnings("ignore")
 rt.set_default_logger_severity(4)          # 0=VERBOSE .. 4=FATAL，压掉 initializer 警告
 
 socket.setdefaulttimeout(10)
-W = r"C:\Users\g1507\WorkBuddy\2026-09-21-19-33-40\vm_dump"
+W = _VD
 MODEL = os.path.join(W, "nn_model.onnx")
 SAMPLES = os.path.join(W, "samples")
 os.makedirs(SAMPLES, exist_ok=True)
@@ -111,6 +120,6 @@ figcaption b{{font-family:ui-monospace,Consolas,monospace;font-size:16px;color:#
 旧版对 5 个输出头一律只读前 26 类，而第 5 个头实际有 27 类（多一个 blank 占位），所以它<b>永远不可能输出 4 位验证码</b>，只能靠置信度阈值硬猜。<br>
 如果上面的绿色结果与图片内容一致，说明准确率符合预期（官方标称约 98~99%）。</div>
 </body></html>"""
-    hp = r"C:\Users\g1507\WorkBuddy\2026-09-21-19-33-40\验证码识别实测报告.html"
+    hp = _os.path.join(_REPO, "验证码识别实测报告.html")
     open(hp, "w", encoding="utf-8").write(html)
     print("    报告已生成:", hp)

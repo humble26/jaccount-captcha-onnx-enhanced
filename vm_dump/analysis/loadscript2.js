@@ -1,10 +1,16 @@
+// ---- 路径基准：优先环境变量，否则按本文件位置推导 ----
+// _REPO=仓库根  _VD=vm_dump  _ORTWS=onnxruntime-web 的 node_modules 位置
+const _REPO = process.env.PROD_WS || require('path').resolve(__dirname, '..', '..');
+const _VD = require('path').join(_REPO, 'vm_dump');
+const _ORTWS = process.env.ORT_NODE_WORKSPACE || require('path').join(_REPO, 'node_modules');
+// --------------------------------------------------------
 /**
  * 单独测 loadScript：直接从**当前脚本**抽取并执行，验证"先挂事件后赋 src"是否修好，
  * 以及超时是否生效。用最小桩，不用整个脚本。
  */
 const fs = require('fs');
 const path = require('path');
-const WS = 'C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40';
+const WS = _REPO;
 const src = fs.readFileSync(path.join(WS, 'jaccount-captcha-onnx-enhanced.user.js'), 'utf8');
 
 // 抽取：从 "function loadScript(urls, timeoutMs) {" 到其配对右括号

@@ -1,6 +1,15 @@
+import os as _os
+import sys as _sys
+_REPO = _os.environ.get("PROD_WS") or _os.path.dirname(
+    _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))))
+_VD = _os.path.join(_REPO, "vm_dump")
+_NODE_MODULES = _os.environ.get("ORT_NODE_WORKSPACE") or _os.path.join(_REPO, "node_modules")
+_NODE_BIN = _os.environ.get("NODE_BIN") or "node"
+_PY_BIN = _os.environ.get("PY_BIN") or _sys.executable
+
 import os
 
-p = r"C:\Users\g1507\WorkBuddy\2026-09-21-19-33-40\vm_dump\nn_model.onnx"
+p = _os.path.join(_VD, "nn_model.onnx")
 data = open(p, "rb").read()
 
 def read_varint(buf, i):

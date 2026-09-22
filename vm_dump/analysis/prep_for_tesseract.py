@@ -1,3 +1,12 @@
+import os as _os
+import sys as _sys
+_REPO = _os.environ.get("PROD_WS") or _os.path.dirname(
+    _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))))
+_VD = _os.path.join(_REPO, "vm_dump")
+_NODE_MODULES = _os.environ.get("ORT_NODE_WORKSPACE") or _os.path.join(_REPO, "node_modules")
+_NODE_BIN = _os.environ.get("NODE_BIN") or "node"
+_PY_BIN = _os.environ.get("PY_BIN") or _sys.executable
+
 """为 Tesseract 对比实验准备两组图片，像素处理与 userscript 中完全一致。
 
 A 组 = 原脚本喂给 Tesseract 的形态：原始尺寸 110x40 的 JPEG（canvas.toDataURL('image/jpeg')）
@@ -6,7 +15,7 @@ B 组 = 新脚本兜底路径的形态：4 倍上采样 + OTSU 二值化 + 24px 
 import os
 from PIL import Image
 
-W = r"C:\Users\g1507\WorkBuddy\2026-09-21-19-33-40\vm_dump"
+W = _VD
 SD = os.path.join(W, "samples")
 A = os.path.join(W, "tess_A_original")
 B = os.path.join(W, "tess_B_prepared")

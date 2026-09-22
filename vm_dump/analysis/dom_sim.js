@@ -1,3 +1,9 @@
+// ---- 路径基准：优先环境变量，否则按本文件位置推导 ----
+// _REPO=仓库根  _VD=vm_dump  _ORTWS=onnxruntime-web 的 node_modules 位置
+const _REPO = process.env.PROD_WS || require('path').resolve(__dirname, '..', '..');
+const _VD = require('path').join(_REPO, 'vm_dump');
+const _ORTWS = process.env.ORT_NODE_WORKSPACE || require('path').join(_REPO, 'node_modules');
+// --------------------------------------------------------
 /**
  * 手工 DOM 沙箱：把扩展 content.js 的"本项目逻辑"部分真实执行起来，
  * 模拟登录页的行为（图片换 src、用户输入、自动填值），检查状态机缺陷。
@@ -7,7 +13,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const WS = 'C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40';
+const WS = _REPO;
 const contentPath = path.join(WS, 'extension-build', 'jaccount-captcha-extension', 'content.js');
 
 // ---------- 极简 DOM ----------

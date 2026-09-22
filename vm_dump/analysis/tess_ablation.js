@@ -1,3 +1,9 @@
+// ---- 路径基准：优先环境变量，否则按本文件位置推导 ----
+// _REPO=仓库根  _VD=vm_dump  _ORTWS=onnxruntime-web 的 node_modules 位置
+const _REPO = process.env.PROD_WS || require('path').resolve(__dirname, '..', '..');
+const _VD = require('path').join(_REPO, 'vm_dump');
+const _ORTWS = process.env.ORT_NODE_WORKSPACE || require('path').join(_REPO, 'node_modules');
+// --------------------------------------------------------
 /**
  * Tesseract 参数消融实验：6 种图像变体 × 4 种参数集 = 24 个组合，同一 worker 复用，可比。
  */
@@ -5,7 +11,7 @@ const fs = require('fs');
 const path = require('path');
 const Tesseract = require('tesseract.js');
 
-const W = 'C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump';
+const W = _VD;
 const ROOT = path.join(W, 'ablation');
 const OUT = path.join(W, 'ablation_result.json');
 

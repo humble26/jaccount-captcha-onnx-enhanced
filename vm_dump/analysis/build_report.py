@@ -1,7 +1,16 @@
+import os as _os
+import sys as _sys
+_REPO = _os.environ.get("PROD_WS") or _os.path.dirname(
+    _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))))
+_VD = _os.path.join(_REPO, "vm_dump")
+_NODE_MODULES = _os.environ.get("ORT_NODE_WORKSPACE") or _os.path.join(_REPO, "node_modules")
+_NODE_BIN = _os.environ.get("NODE_BIN") or "node"
+_PY_BIN = _os.environ.get("PY_BIN") or _sys.executable
+
 import json, os, base64
 
-W = r"C:\Users\g1507\WorkBuddy\2026-09-21-19-33-40\vm_dump"
-OUT = r"C:\Users\g1507\WorkBuddy\2026-09-21-19-33-40\验证码识别实测报告.html"
+W = _VD
+OUT = _os.path.join(_REPO, "验证码识别实测报告.html")
 
 truth = json.load(open(os.path.join(W, "ground_truth.json"), encoding="utf-8"))
 logit = {r["file"].replace(".png", ""): r for r in json.load(open(os.path.join(W, "logit_check.json"), encoding="utf-8"))}

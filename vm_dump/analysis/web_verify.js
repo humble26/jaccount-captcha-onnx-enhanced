@@ -1,3 +1,9 @@
+// ---- 路径基准：优先环境变量，否则按本文件位置推导 ----
+// _REPO=仓库根  _VD=vm_dump  _ORTWS=onnxruntime-web 的 node_modules 位置
+const _REPO = process.env.PROD_WS || require('path').resolve(__dirname, '..', '..');
+const _VD = require('path').join(_REPO, 'vm_dump');
+const _ORTWS = process.env.ORT_NODE_WORKSPACE || require('path').join(_REPO, 'node_modules');
+// --------------------------------------------------------
 /**
  * 用真实的 onnxruntime-web（浏览器用的那个 ort.min.js）+ 真实的模型，
  * 跑 220 张样本，和 Python 参考实现逐张比对。
@@ -9,11 +15,11 @@ const fs = require('fs');
 const path = require('path');
 const http = require('http');
 
-const WS = 'C:\\Users\\g1507\\.workbuddy\\binaries\\node\\workspace';
+const WS = _ORTWS;
 const ORT_DIST = path.join(WS, 'node_modules', 'onnxruntime-web', 'dist');
-const W = 'C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump';
+const W = _VD;
 const WEB = path.join(W, 'webcheck');
-const US = 'C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\jaccount-captcha-onnx-enhanced.user.js';
+const US = require('path').join(_REPO, 'jaccount-captcha-onnx-enhanced.user.js');
 
 // ---------- 1. 从 userscript 里抽出真实的 softmax + postprocess ----------
 const src = fs.readFileSync(US, 'utf8');

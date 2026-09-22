@@ -1,10 +1,19 @@
+import os as _os
+import sys as _sys
+_REPO = _os.environ.get("PROD_WS") or _os.path.dirname(
+    _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))))
+_VD = _os.path.join(_REPO, "vm_dump")
+_NODE_MODULES = _os.environ.get("ORT_NODE_WORKSPACE") or _os.path.join(_REPO, "node_modules")
+_NODE_BIN = _os.environ.get("NODE_BIN") or "node"
+_PY_BIN = _os.environ.get("PY_BIN") or _sys.executable
+
 import os, io, urllib.request, socket
 import numpy as np
 import onnxruntime as rt
 from PIL import Image, ImageDraw
 
 socket.setdefaulttimeout(8)
-W = r"C:\Users\g1507\WorkBuddy\2026-09-21-19-33-40\vm_dump"
+W = _VD
 MODEL = os.path.join(W, "nn_model.onnx")
 
 # ---------- 1. 再试一次真实验证码（带 Referer） ----------

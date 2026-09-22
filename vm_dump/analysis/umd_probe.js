@@ -1,3 +1,9 @@
+// ---- 路径基准：优先环境变量，否则按本文件位置推导 ----
+// _REPO=仓库根  _VD=vm_dump  _ORTWS=onnxruntime-web 的 node_modules 位置
+const _REPO = process.env.PROD_WS || require('path').resolve(__dirname, '..', '..');
+const _VD = require('path').join(_REPO, 'vm_dump');
+const _ORTWS = process.env.ORT_NODE_WORKSPACE || require('path').join(_REPO, 'node_modules');
+// --------------------------------------------------------
 /**
  * 验证"受控作用域执行 ORT"方案：
  *
@@ -13,7 +19,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const ORT = 'C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump\\ort.min.js';
+const ORT = require('path').join(_VD, 'ort.min.js');
 const code = fs.readFileSync(ORT, 'utf8').replace(/\n?\/\/# sourceMappingURL=\S+\s*$/, '');
 
 console.log('ORT 源码长度:', code.length);

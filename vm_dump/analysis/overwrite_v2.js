@@ -1,10 +1,16 @@
+// ---- 路径基准：优先环境变量，否则按本文件位置推导 ----
+// _REPO=仓库根  _VD=vm_dump  _ORTWS=onnxruntime-web 的 node_modules 位置
+const _REPO = process.env.PROD_WS || require('path').resolve(__dirname, '..', '..');
+const _VD = require('path').join(_REPO, 'vm_dump');
+const _ORTWS = process.env.ORT_NODE_WORKSPACE || require('path').join(_REPO, 'node_modules');
+// --------------------------------------------------------
 /**
  * 稳健版：把两版的 recognize() 原文抽出，配桩执行，观察最终是否写入了 input.value。
  * 这样测的是真实函数行为，不依赖字符串截取的边界猜测。
  */
 const fs = require('fs');
 const path = require('path');
-const WS = 'C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40';
+const WS = _REPO;
 
 // 抽出 recognize 函数体（从 "async function recognize(img) {" 到下一个顶层 "}"）
 function extractRecognize(src) {

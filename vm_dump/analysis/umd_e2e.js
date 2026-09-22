@@ -1,3 +1,9 @@
+// ---- 路径基准：优先环境变量，否则按本文件位置推导 ----
+// _REPO=仓库根  _VD=vm_dump  _ORTWS=onnxruntime-web 的 node_modules 位置
+const _REPO = process.env.PROD_WS || require('path').resolve(__dirname, '..', '..');
+const _VD = require('path').join(_REPO, 'vm_dump');
+const _ORTWS = process.env.ORT_NODE_WORKSPACE || require('path').join(_REPO, 'node_modules');
+// --------------------------------------------------------
 /**
  * 4.4.4 验证：证明"受控作用域"修复解决了挂载问题，且 ORT 在取回后**功能完好**。
  *
@@ -11,13 +17,13 @@
  */
 const fs = require('fs');
 const path = require('path');
-const WS = 'C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40';
+const WS = _REPO;
 const ORT_CODE = fs.readFileSync(path.join(WS, 'vm_dump', 'ort.min.js'), 'utf8')
   .replace(/\n?\/\/# sourceMappingURL=\S+\s*$/, '');
 const MODEL = fs.readFileSync(path.join(WS, 'vm_dump', 'nn_model.onnx'));
 
 const MODE = process.argv[2] || 'define';
-const DIST = 'C:\\Users\\g1507\\.workbuddy\\binaries\\node\\workspace\\node_modules\\onnxruntime-web\\dist';
+const DIST = require('path').join(_ORTWS, 'node_modules', 'onnxruntime-web', 'dist');
 
 // ===== 污染全局，模拟 jAccount 页面 =====
 if (MODE === 'define') {

@@ -1,6 +1,15 @@
+import os as _os
+import sys as _sys
+_REPO = _os.environ.get("PROD_WS") or _os.path.dirname(
+    _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))))
+_VD = _os.path.join(_REPO, "vm_dump")
+_NODE_MODULES = _os.environ.get("ORT_NODE_WORKSPACE") or _os.path.join(_REPO, "node_modules")
+_NODE_BIN = _os.environ.get("NODE_BIN") or "node"
+_PY_BIN = _os.environ.get("PY_BIN") or _sys.executable
+
 import os, shutil, zipfile, json, hashlib
 
-WS = r"C:\Users\g1507\WorkBuddy\2026-09-21-19-33-40"
+WS = _REPO
 DST = r"E:\harness\jAccount验证码识别-ResNet增强版"
 ZIP = r"E:\harness\jAccount验证码识别-ResNet增强版.zip"
 
@@ -55,6 +64,12 @@ print(f"\n打包完成: {ZIP}  ({os.path.getsize(ZIP)/1024:.0f} KB)")
 print("\n=== 文件夹内容 ===")
 for f in sorted(os.listdir(DST)):
     p = os.path.join(DST, f)
+    # 目录不能 open() 读 —— 包里加了「测试脚本/」子目录后这里会抛
+    # PermissionError，把已经成功完成的打包结果搞得像失败了。
+    if os.path.isdir(p):
+        n = sum(len(fs) for _, _, fs in os.walk(p))
+        print(f"  {'':>8}     {'<目录>':12s}  {f}/  （{n} 个文件）")
+        continue
     h = hashlib.md5(open(p, "rb").read()).hexdigest()[:10]
     print(f"  {os.path.getsize(p)/1024:8.1f} KB  {h}  {f}")
 

@@ -1,3 +1,9 @@
+// ---- 路径基准：优先环境变量，否则按本文件位置推导 ----
+// _REPO=仓库根  _VD=vm_dump  _ORTWS=onnxruntime-web 的 node_modules 位置
+const _REPO = process.env.PROD_WS || require('path').resolve(__dirname, '..', '..');
+const _VD = require('path').join(_REPO, 'vm_dump');
+const _ORTWS = process.env.ORT_NODE_WORKSPACE || require('path').join(_REPO, 'node_modules');
+// --------------------------------------------------------
 /**
  * 真实 ORT 探针：用**用户脚本实际加载的那个文件** dist/ort.min.js，
  * 以与用户脚本 loadOrt() 完全相同的方式配置 env，然后跑真实模型推理。
@@ -9,8 +15,8 @@ const fs = require('fs');
 const path = require('path');
 
 const ORT_DIST = process.argv[2] || path.join(
-  'C:\\Users\\g1507\\.workbuddy\\binaries\\node\\workspace', 'node_modules', 'onnxruntime-web', 'dist');
-const MODEL = 'C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump\\nn_model.onnx';
+  _ORTWS, 'node_modules', 'onnxruntime-web', 'dist');
+const MODEL = require('path').join(_VD, 'nn_model.onnx');
 
 // ort.min.js 是浏览器 UMD 包，挂在 self 上；Node 里没有 self，先补一个
 globalThis.self = globalThis;

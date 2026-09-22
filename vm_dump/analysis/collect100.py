@@ -1,3 +1,12 @@
+import os as _os
+import sys as _sys
+_REPO = _os.environ.get("PROD_WS") or _os.path.dirname(
+    _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))))
+_VD = _os.path.join(_REPO, "vm_dump")
+_NODE_MODULES = _os.environ.get("ORT_NODE_WORKSPACE") or _os.path.join(_REPO, "node_modules")
+_NODE_BIN = _os.environ.get("NODE_BIN") or "node"
+_PY_BIN = _os.environ.get("PY_BIN") or _sys.executable
+
 """追加采集 100 张真实验证码，并对每张同时跑 ResNet 的「新版逻辑」与「原版逻辑」，供后续盲标比对。"""
 import os, time, json, socket, warnings
 import numpy as np
@@ -8,7 +17,7 @@ warnings.filterwarnings("ignore")
 rt.set_default_logger_severity(4)
 socket.setdefaulttimeout(10)
 
-W = r"C:\Users\g1507\WorkBuddy\2026-09-21-19-33-40\vm_dump"
+W = _VD
 SD = os.path.join(W, "samples2")
 os.makedirs(SD, exist_ok=True)
 

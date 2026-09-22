@@ -1,0 +1,432 @@
+[
+ {
+  "key": "h087",
+  "pool": "hold",
+  "pos": 4,
+  "truth": "y",
+  "pred": "y",
+  "conf": 0.94597,
+  "file": "C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump\\holdout\\h087.png",
+  "kind": "lowconf"
+ },
+ {
+  "key": "h048",
+  "pool": "hold",
+  "pos": 1,
+  "truth": "o",
+  "pred": "o",
+  "conf": 0.96984,
+  "file": "C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump\\holdout\\h048.png",
+  "kind": "lowconf"
+ },
+ {
+  "key": "c16",
+  "pool": "tune",
+  "pos": 2,
+  "truth": "u",
+  "pred": "u",
+  "conf": 0.97703,
+  "file": "C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump\\samples\\c16.png",
+  "kind": "lowconf"
+ },
+ {
+  "key": "n009",
+  "pool": "tune",
+  "pos": 4,
+  "truth": "i",
+  "pred": "i",
+  "conf": 0.98236,
+  "file": "C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump\\samples2\\n009.png",
+  "kind": "lowconf"
+ },
+ {
+  "key": "h040",
+  "pool": "hold",
+  "pos": 3,
+  "truth": "j",
+  "pred": "j",
+  "conf": 0.98412,
+  "file": "C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump\\holdout\\h040.png",
+  "kind": "lowconf"
+ },
+ {
+  "key": "h034",
+  "pool": "hold",
+  "pos": 3,
+  "truth": "c",
+  "pred": "c",
+  "conf": 0.99188,
+  "file": "C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump\\holdout\\h034.png",
+  "kind": "lowconf"
+ },
+ {
+  "key": "h034",
+  "pool": "hold",
+  "pos": 5,
+  "truth": "d",
+  "pred": "d",
+  "conf": 0.99376,
+  "file": "C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump\\holdout\\h034.png",
+  "kind": "lowconf"
+ },
+ {
+  "key": "n026",
+  "pool": "tune",
+  "pos": 3,
+  "truth": "n",
+  "pred": "n",
+  "conf": 0.995,
+  "file": "C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump\\samples2\\n026.png",
+  "kind": "lowconf"
+ },
+ {
+  "key": "h012",
+  "pool": "hold",
+  "pos": 4,
+  "truth": "n",
+  "pred": "n",
+  "conf": 0.99557,
+  "file": "C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump\\holdout\\h012.png",
+  "kind": "lowconf"
+ },
+ {
+  "key": "n097",
+  "pool": "tune",
+  "pos": 3,
+  "truth": "z",
+  "pred": "z",
+  "conf": 0.99572,
+  "file": "C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump\\samples2\\n097.png",
+  "kind": "lowconf"
+ },
+ {
+  "key": "c12",
+  "pool": "tune",
+  "pos": 5,
+  "truth": "o",
+  "pred": "o",
+  "conf": 0.99583,
+  "file": "C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump\\samples\\c12.png",
+  "kind": "lowconf"
+ },
+ {
+  "key": "c18",
+  "pool": "tune",
+  "pos": 2,
+  "truth": "b",
+  "pred": "b",
+  "conf": 0.99585,
+  "file": "C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump\\samples\\c18.png",
+  "kind": "lowconf"
+ },
+ {
+  "key": "h002",
+  "pool": "hold",
+  "pos": 4,
+  "truth": "t",
+  "pred": "t",
+  "conf": 0.99664,
+  "file": "C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump\\holdout\\h002.png",
+  "kind": "lowconf"
+ },
+ {
+  "key": "h055",
+  "pool": "hold",
+  "pos": 4,
+  "truth": "u",
+  "pred": "u",
+  "conf": 0.99707,
+  "file": "C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump\\holdout\\h055.png",
+  "kind": "lowconf"
+ },
+ {
+  "key": "h024",
+  "pool": "hold",
+  "pos": 1,
+  "truth": "b",
+  "pred": "b",
+  "conf": 0.9977,
+  "file": "C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump\\holdout\\h024.png",
+  "kind": "lowconf"
+ },
+ {
+  "key": "n020",
+  "pool": "tune",
+  "pos": 3,
+  "truth": "g",
+  "pred": "g",
+  "conf": 0.99774,
+  "file": "C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump\\samples2\\n020.png",
+  "kind": "lowconf"
+ },
+ {
+  "key": "n090",
+  "pool": "tune",
+  "pos": 3,
+  "truth": "a",
+  "pred": "a",
+  "conf": 0.99779,
+  "file": "C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump\\samples2\\n090.png",
+  "kind": "lowconf"
+ },
+ {
+  "key": "h063",
+  "pool": "hold",
+  "pos": 3,
+  "truth": "t",
+  "pred": "t",
+  "conf": 0.99788,
+  "file": "C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump\\holdout\\h063.png",
+  "kind": "lowconf"
+ },
+ {
+  "key": "n093",
+  "pool": "tune",
+  "pos": 4,
+  "truth": "w",
+  "pred": "w",
+  "conf": 0.99811,
+  "file": "C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump\\samples2\\n093.png",
+  "kind": "lowconf"
+ },
+ {
+  "key": "n075",
+  "pool": "tune",
+  "pos": 5,
+  "truth": "p",
+  "pred": "p",
+  "conf": 0.99815,
+  "file": "C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump\\samples2\\n075.png",
+  "kind": "lowconf"
+ },
+ {
+  "key": "n034",
+  "pool": "tune",
+  "pos": 4,
+  "truth": "w",
+  "pred": "w",
+  "conf": 0.99816,
+  "file": "C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump\\samples2\\n034.png",
+  "kind": "lowconf"
+ },
+ {
+  "key": "n019",
+  "pool": "tune",
+  "pos": 3,
+  "truth": "j",
+  "pred": "j",
+  "conf": 0.99837,
+  "file": "C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump\\samples2\\n019.png",
+  "kind": "lowconf"
+ },
+ {
+  "key": "h076",
+  "pool": "hold",
+  "pos": 2,
+  "truth": "g",
+  "pred": "g",
+  "conf": 0.99838,
+  "file": "C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump\\holdout\\h076.png",
+  "kind": "lowconf"
+ },
+ {
+  "key": "n079",
+  "pool": "tune",
+  "pos": 1,
+  "truth": "k",
+  "pred": "k",
+  "conf": 0.99838,
+  "file": "C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump\\samples2\\n079.png",
+  "kind": "lowconf"
+ },
+ {
+  "key": "n073",
+  "pool": "tune",
+  "pos": 5,
+  "truth": "n",
+  "pred": "n",
+  "conf": 0.99845,
+  "file": "C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump\\samples2\\n073.png",
+  "kind": "lowconf"
+ },
+ {
+  "key": "n020",
+  "pool": "tune",
+  "pos": 4,
+  "truth": "f",
+  "pred": "f",
+  "conf": 0.99848,
+  "file": "C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump\\samples2\\n020.png",
+  "kind": "lowconf"
+ },
+ {
+  "key": "h030",
+  "pool": "hold",
+  "pos": 5,
+  "truth": "g",
+  "pred": "g",
+  "conf": 0.99857,
+  "file": "C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump\\holdout\\h030.png",
+  "kind": "lowconf"
+ },
+ {
+  "key": "n088",
+  "pool": "tune",
+  "pos": 3,
+  "truth": "o",
+  "pred": "o",
+  "conf": 0.99858,
+  "file": "C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump\\samples2\\n088.png",
+  "kind": "lowconf"
+ },
+ {
+  "key": "c18",
+  "pool": "tune",
+  "pos": 3,
+  "truth": "r",
+  "pred": "r",
+  "conf": 0.9986,
+  "file": "C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump\\samples\\c18.png",
+  "kind": "lowconf"
+ },
+ {
+  "key": "n027",
+  "pool": "tune",
+  "pos": 5,
+  "truth": "i",
+  "pred": "i",
+  "conf": 0.99863,
+  "file": "C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump\\samples2\\n027.png",
+  "kind": "lowconf"
+ },
+ {
+  "key": "c10",
+  "pool": "tune",
+  "pos": 4,
+  "truth": "e",
+  "pred": "e",
+  "conf": 0.99871,
+  "file": "C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump\\samples\\c10.png",
+  "kind": "lowconf"
+ },
+ {
+  "key": "c14",
+  "pool": "tune",
+  "pos": 2,
+  "truth": "g",
+  "pred": "g",
+  "conf": 0.99873,
+  "file": "C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump\\samples\\c14.png",
+  "kind": "lowconf"
+ },
+ {
+  "key": "n010",
+  "pool": "tune",
+  "pos": 3,
+  "truth": "p",
+  "pred": "p",
+  "conf": 0.99873,
+  "file": "C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump\\samples2\\n010.png",
+  "kind": "lowconf"
+ },
+ {
+  "key": "n048",
+  "pool": "tune",
+  "pos": 4,
+  "truth": "w",
+  "pred": "w",
+  "conf": 0.99874,
+  "file": "C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump\\samples2\\n048.png",
+  "kind": "lowconf"
+ },
+ {
+  "key": "n054",
+  "pool": "tune",
+  "pos": 4,
+  "truth": "s",
+  "pred": "s",
+  "conf": 0.99874,
+  "file": "C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump\\samples2\\n054.png",
+  "kind": "lowconf"
+ },
+ {
+  "key": "c10",
+  "pool": "tune",
+  "pos": 1,
+  "truth": "f",
+  "pred": "f",
+  "conf": 0.99889,
+  "file": "C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump\\samples\\c10.png",
+  "kind": "lowconf"
+ },
+ {
+  "key": "h087",
+  "pool": "hold",
+  "pos": 3,
+  "truth": "u",
+  "pred": "u",
+  "conf": 0.99896,
+  "file": "C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump\\holdout\\h087.png",
+  "kind": "lowconf"
+ },
+ {
+  "key": "n081",
+  "pool": "tune",
+  "pos": 3,
+  "truth": "z",
+  "pred": "z",
+  "conf": 0.99897,
+  "file": "C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump\\samples2\\n081.png",
+  "kind": "lowconf"
+ },
+ {
+  "key": "n051",
+  "pool": "tune",
+  "pos": 4,
+  "truth": "y",
+  "pred": "u",
+  "conf": 0.84394,
+  "file": "C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump\\samples2\\n051.png",
+  "kind": "misclass"
+ },
+ {
+  "key": "h040",
+  "pool": "hold",
+  "pos": 4,
+  "truth": "g",
+  "pred": "z",
+  "conf": 0.96121,
+  "file": "C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump\\holdout\\h040.png",
+  "kind": "misclass"
+ },
+ {
+  "key": "n088",
+  "pool": "tune",
+  "pos": 4,
+  "truth": "c",
+  "pred": "o",
+  "conf": 0.97067,
+  "file": "C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump\\samples2\\n088.png",
+  "kind": "misclass"
+ },
+ {
+  "key": "h030",
+  "pool": "hold",
+  "pos": 4,
+  "truth": "w",
+  "pred": "g",
+  "conf": 0.99447,
+  "file": "C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump\\holdout\\h030.png",
+  "kind": "misclass"
+ },
+ {
+  "key": "c12",
+  "pool": "tune",
+  "pos": 4,
+  "truth": "x",
+  "pred": "o",
+  "conf": 0.99824,
+  "file": "C:\\Users\\g1507\\WorkBuddy\\2026-09-21-19-33-40\\vm_dump\\samples\\c12.png",
+  "kind": "misclass"
+ }
+]

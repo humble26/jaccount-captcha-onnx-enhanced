@@ -1,7 +1,16 @@
+import os as _os
+import sys as _sys
+_REPO = _os.environ.get("PROD_WS") or _os.path.dirname(
+    _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__))))
+_VD = _os.path.join(_REPO, "vm_dump")
+_NODE_MODULES = _os.environ.get("ORT_NODE_WORKSPACE") or _os.path.join(_REPO, "node_modules")
+_NODE_BIN = _os.environ.get("NODE_BIN") or "node"
+_PY_BIN = _os.environ.get("PY_BIN") or _sys.executable
+
 """同步 4.4.1 到 E:\\harness 并重新打包油猴版。"""
 import os, shutil, zipfile, hashlib
 
-WS = r"C:\Users\g1507\WorkBuddy\2026-09-21-19-33-40"
+WS = _REPO
 SRC = os.path.join(WS, "jaccount-captcha-onnx-enhanced.user.js")
 PKG = r"E:\harness\jAccount验证码识别-ResNet增强版"
 ZIP = PKG + ".zip"
