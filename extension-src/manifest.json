@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "jAccount 验证码自动识别（ResNet）",
-  "version": "1.0.4",
-  "description": "打开 SJTU jAccount 登录页时自动识别验证码并填入。模型与推理引擎全部打包在扩展内，本机离线运行，不上传任何数据。",
+  "version": "1.0.8",
+  "description": "打开 SJTU jAccount 登录页时自动识别验证码并填入。决策余量不足时自动换图重试。模型与推理引擎全部打包在扩展内，本机离线运行，不上传任何数据。",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",

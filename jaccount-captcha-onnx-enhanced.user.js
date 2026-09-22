@@ -2,9 +2,9 @@
 // @name         jAccount 验证码识别 - ResNet(ONNX) 增强版
 // @name:en      jAccount Captcha Auto-Recognizer (ONNX ResNet, Enhanced)
 // @namespace    local.tuned.jaccount
-// @version      4.4.5
-// @description  本地 ResNet-20 (ONNX) 推理，真实验证码实测 97.5%，独立留出集 98.0%（原始 Tesseract 方案 74.2%）；自动判定 4/5 位；Tesseract 兜底；模型本地缓存；冷启动约 2.2s
-// @description:en Local ResNet-20 (ONNX) inference, 97.5% measured (98.0% on a held-out set) vs 74.2% for the plain Tesseract approach. Auto 4/5 length detection. Tesseract fallback. ~2.2s cold start.
+// @version      4.5.2
+// @description  本地 ResNet-20 (ONNX) 推理，真实验证码实测 97.5%，独立留出集 98.0%（原始 Tesseract 方案 74.2%）；自动判定 4/5 位；决策余量不足时自动换图重试；Tesseract 兜底；模型本地缓存；冷启动约 2.2s
+// @description:en Local ResNet-20 (ONNX) inference, 97.5% measured (98.0% on a held-out set) vs 74.2% for the plain Tesseract approach. Auto 4/5 length detection. Auto-refresh retry when the decision margin is thin. Tesseract fallback. ~2.2s cold start.
 // @author       danyang685 / RyanStarFox (original) — enhanced
 // @homepageURL  https://github.com/RyanStarFox/JAccountVerificationCode
 // @source       https://github.com/PhotonQuantum/jaccount-captcha-solver
@@ -44,9 +44,13 @@
  *  3. 二值化阈值修正为 >= 156（官方 LUT = [0]*156 + [1]*100，原版用 > 156 差了 1 个灰度级）。
  *  4. 输入张量名从 session.inputNames 动态取，不再硬编码 'input.1'。
  *  5. 输出张量按 session.outputNames 数值序对齐，不再依赖 JS 对象 key 的隐式排序。
- *  6. softmax 置信度只作参考：这个模型输出非常"自信"，错误样本的最低字符概率在 84%~99.6%，
- *     而正确样本最低可到 94.6% —— 两者完全重叠，靠置信度阈值筛不出错例。
- *     真正兜底靠的是长度校验（不是 4/5 位就拒绝填入）。
+ *  6. 判断"一张图能不能信"用的是**决策间隔**（该位 top1 与 top2 的 logit 之差），不是 softmax 概率。
+ *     概率受 logit 整体尺度影响，且错误样本的最低概率在 84%~99.6%、与正确样本完全重叠，
+ *     单靠它筛不干净。改用「任一位间隔 < 6」触发换图后（v4.5.2）：
+ *       调参集 120 张 自动化率 80.8% → 93.3%（误伤 20 → 5）
+ *       留出集 100 张 自动化率 89.0% → 94.0%（误伤  9 → 4）
+ *     两个子集都仍然拦下各自全部错误；220 张整体换图率 15.5% → 6.4%，300 张新样本 14.0% → 7.0%。
+ *     真正兜底还有长度校验（不是 4/5 位就拒绝填入）。
  *  7. Tesseract 兜底调优（白名单 + PSM7）在 120 张上与原版**打平**，都是 89/120 = 74.2%。
  *     20 张时看到的 "80% -> 85%" 是小样本噪声，已被更大样本推翻。这项改动的真实收益是
  *     速度：worker 复用把单张 169ms 压到 12ms（约 13.6 倍）。
@@ -276,8 +280,55 @@
 
         debug: false,          // 想看详细日志改成 true
         showStatus: true,      // 在验证码下方显示识别状态（排障用；确认无问题后可改为 false）
-        markLowConfidence: true, // 低置信度时给输入框加个橙色描边
-        lowConfidence: 0.60,   // 单字符 softmax 概率低于该值视为"低置信"
+        // 键名沿用历史（早期判据是 softmax 置信度）；现在的语义是
+        // "决策间隔不足（minMargin < lowMargin）时给输入框加橙色描边"。
+        markLowConfidence: true,
+
+        // ---- 判据一（v4.5.2 起的**主判据**）：logit 决策间隔 ----
+        //
+        // 「决策间隔」= 该位 top1 与 top2 的 logit 之差。它比 softmax 概率更直接地度量
+        // "离决策边界有多近"，且不受 logit 整体尺度（温度效应）影响。
+        //
+        // 220 张标注样本实测（调参集/留出集两个独立子集分别验证，均拦下各自全部错误）：
+        //
+        //   判据                        调参集120          留出集100       220张换图率
+        //   min 置信 < 0.999            80.8% 误伤20       89.0% 误伤9      15.5%
+        //   min 间隔 < 6                93.3% 误伤 5       94.0% 误伤4       6.4%  ← 选它
+        //
+        // 即：在同样拦下全部错误的前提下，换图率 15.5% → 6.4%，误伤（把正确答案也换掉）
+        // 29 张 → 9 张。300 张新采集样本上换图率 7.0%（旧判据 14.0%）。
+        //
+        // ⚠ 阈值 6 与实测最大错误间隔（5.799）只差 0.2，余量薄：这个数是在 5 个错误样本上
+        //   标定的，未来应随新数据重标定。两个独立子集都通过，是它当前可信度的主要来源。
+        lowMargin: 6,
+
+        // ---- 判据二（仍计算并显示，但不再用于触发换图）----
+        //
+        // 保留它有两个用途：① 状态条/日志里给出一个与旧版可比的数字；
+        // ② 排查时能认出"概率高但间隔小"这类样本（模型内部其实很纠结）。
+        //
+        // 历史教训：这个值以前是 0.60，而实测中全部 5 个错误样本的最低置信
+        // 都在 84.39%~99.58% 之间 —— 0.60 的阈值永远够不到，等于该功能从未生效。
+        lowConfidence: 0.999,
+
+        // 低置信时自动点"换一张"并重试的最大次数。
+        // 设为 0 关闭自动换图（只标注不重试，完全由用户决定）。
+        // 之所以要限制次数：换图是有限资源，且连续换图会让用户觉得脚本在乱点。
+        maxRefreshRetries: 3,
+
+        // 换图按钮候选选择器。jAccount 的刷新控件没有稳定 id，按优先级依次尝试，
+        // 命中第一个可见且可点的元素即用。全部落空则退化为"不换图只标注"。
+        refreshSelectors: [
+            '.captcha-refresh',
+            '#captcha-refresh',
+            '.captcha img + a',
+            '#captcha-img + a',
+            '#captcha-img + span',
+            'img[id*="captcha" i] + a',
+            'img[id*="captcha" i] + span',
+            'a[onclick*="captcha" i]',
+            'button[onclick*="captcha" i]'
+        ],
 
         // 类别数与官方一致：前 4 个头 26 类，第 5 个头 27 类（多一个 blank）
         numClasses: 26,
@@ -335,7 +386,7 @@
         const m = (e.message || String(e)).replace(/\s+/g, ' ').trim();
         return m.length > 120 ? m.slice(0, 120) + '…' : m;
     };
-    const VERSION = '4.4.4';
+    const VERSION = '4.5.2';
     const showDiag = (input, base, detail) => {
         // 详细原因同时写进 title，鼠标悬停可见（不改动输入框本身的外观）
         input.placeholder = base + ' [' + detail + ']';
@@ -798,6 +849,7 @@
 
         let text = '';
         const confidences = [];
+        const margins = [];        // 每一位的 top1 与 top2 的 logit 之差（决策间隔）
         let probBuf = new Float32Array(32);
 
         for (const name of names) {
@@ -809,10 +861,15 @@
                 ? tensor.dims[1]
                 : Math.min(data.length, CFG.blankIndex + 1);
 
-            let best = 0, bestVal = -Infinity;
-            for (let i = 0; i < n; i++) if (data[i] > bestVal) { bestVal = data[i]; best = i; }
+            // 一次扫描同时取 top1 / top2：top1 决定字符，top1-top2 决定"离边界有多近"。
+            let best = 0, bestVal = -Infinity, secondVal = -Infinity;
+            for (let i = 0; i < n; i++) {
+                const v = data[i];
+                if (v > bestVal) { secondVal = bestVal; bestVal = v; best = i; }
+                else if (v > secondVal) { secondVal = v; }
+            }
 
-            if (best >= CFG.numClasses) {          // blank -> 该位不存在
+            if (best >= CFG.numClasses) {          // blank -> 该位不存在（与置信度一样，不计入统计）
                 log(`位置 ${name}: <blank>  (prob 主导类为占位符)`);
                 continue;
             }
@@ -820,13 +877,16 @@
             if (probBuf.length < n) probBuf = new Float32Array(n);
             const probs = softmax(data, n, probBuf);
             const p = probs[best];
+            const margin = bestVal - secondVal;
             confidences.push(p);
+            margins.push(margin);
             text += CFG.charset[best] || '?';
-            log(`位置 ${name}: ${CFG.charset[best]}  p=${(p * 100).toFixed(1)}%`);
+            log(`位置 ${name}: ${CFG.charset[best]}  p=${(p * 100).toFixed(1)}%  间隔=${margin.toFixed(2)}`);
         }
 
         const minP = confidences.length ? Math.min(...confidences) : 0;
-        return { text, confidences, minConfidence: minP };
+        const minM = margins.length ? Math.min(...margins) : Infinity;
+        return { text, confidences, minConfidence: minP, margins, minMargin: minM };
     }
 
     /* ------------------------------------------------------------ ONNX 引擎 */
@@ -915,7 +975,7 @@
 
             step = '后处理';
             const res = postprocess(session, output);
-            log(`ONNX 推理 ${cost.toFixed(1)}ms -> "${res.text}" 最低置信 ${(res.minConfidence * 100).toFixed(1)}%`);
+            log(`ONNX 推理 ${cost.toFixed(1)}ms -> "${res.text}" 最小间隔 ${res.minMargin.toFixed(2)} 最低置信 ${(res.minConfidence * 100).toFixed(1)}%`);
             return res;
         } catch (e) {
             // 抛出的 message 一定带上失败步骤，避免上层只看到一句 "xxx is not a function"。
@@ -1003,7 +1063,10 @@
         return {
             text: text.length === 4 || text.length === 5 ? text : text.slice(0, 5),
             confidences: [],
-            minConfidence: (data.confidence || 0) / 100
+            minConfidence: (data.confidence || 0) / 100,
+            // 没有 logit 间隔可比：Tesseract 的置信度是引擎自评，与 ResNet 的口径不同。
+            // 置为 Infinity，表示"不因决策余量不足而触发换图重试"。
+            minMargin: Infinity
         };
     }
 
@@ -1037,19 +1100,216 @@
     function markInput(input, low) {
         if (!CFG.markLowConfidence) return;
         input.style.outline = low ? '2px solid #e6a23c' : '';
-        input.title = low ? '识别置信度较低，请核对验证码' : '';
+        // title 只在**确实需要改**时才写。
+        //
+        // 原实现是无条件 `input.title = low ? '…' : ''`，看似无害，实际会踩掉
+        // showDiag() 刚写进去的诊断信息：失败一轮（title="ONNX: wasm 起不来"）、
+        // 随后成功一轮，title 就被这行清成空字符串。用户鼠标悬上去只剩空白，
+        // 而那句诊断恰恰是排查问题唯一能拿到的线索 —— 我们为此专门加过 showDiag。
+        // 现在低置信才占用 title；高置信时不碰它，让诊断信息活到用户看见为止。
+        if (low) input.title = '识别结果决策余量不足，请核对验证码';
+        else if (input.title === '识别结果决策余量不足，请核对验证码') input.title = '';
     }
 
-    async function recognize(img) {
-        // 输入框找不到时以前是静默 return —— 用户完全看不出脚本是否在运行。
-        // 这是最难排查的一类失败：登录页改版把 ID 换掉的话，表现就是"什么都没发生"。
-        const input = document.querySelector(CFG.inputSelector);
-        if (!input) {
-            paintStatus('err', `找不到验证码输入框（${CFG.inputSelector}），页面结构可能已改版`);
-            return;
+    /* ------------------------------------------- 低置信自动换图重试 */
+
+    /**
+     * 找一个"可见且可点"的换图控件。
+     *
+     * 为什么不用固定 id：jAccount 的刷新控件（历史版本可能是 <a>、<span> 或
+     * 带 onclick 的图片）在多次改版里换过实现，写死一个选择器会在改版后静默失效 ——
+     * 表现是"低置信了却从不换图"，且没有任何报错，极难排查。
+     * 因此改为按候选列表依次试，并要求元素确实可见（有尺寸、非 hidden）。
+     */
+    function findRefreshButton() {
+        for (const sel of CFG.refreshSelectors) {
+            let nodes;
+            try {
+                nodes = document.querySelectorAll(sel);
+            } catch (e) {
+                continue;   // 选择器语法不被支持时跳过，不影响其它候选
+            }
+            for (const el of nodes) {
+                // offsetWidth/Height 为 0 基本等于不可见（display:none 或未布局）
+                if (!el || el.offsetWidth <= 0 || el.offsetHeight <= 0) continue;
+                return el;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * 触发换图，并等待新图真正就绪。
+     *
+     * 等待策略用了两层保险：
+     *   1. 优先用 img.decode() —— 它保证像素已经可读，不会有"读到上一帧"的竞态；
+     *   2. 兜底用固定延迟 —— 有些换图实现是直接改 <img> 的 src，
+     *      但若新 URL 命中缓存，load 事件可能同步触发，仅靠事件监听会等不到。
+     *
+     * 返回 true 表示"点了换图且已尽力等待"，false 表示没找到按钮。
+     */
+    /* ---------------------------------------------------- 换图期间抑制观察者
+     *
+     * 这是一个**真实存在的无限循环**，由 race_retry_observer.js 抓到：
+     *
+     *   recognize() 低置信
+     *     → refreshCaptcha() 点击换图按钮
+     *       → 站点改写 <img> 的 src
+     *         → MutationObserver 看到 src 变更 → schedule('src 属性变更')
+     *           → 80ms 后 runFor() → recognize()   ← 全新一轮，全新 runToken
+     *             → 又是低置信 → 又点换图 → …… 永不终止
+     *
+     * 实测放大速率是**线性且不收敛**的，稳定在约 33 次换图/秒：
+     *   秒:  1   2   3    4    5    6
+     *   累计: 33  66  99  132  165  198
+     * 也就是说页面会以恒定的节奏无限点"换一张"，直到用户关掉标签页。
+     *
+     * 为什么 runToken 拦不住它：token 只在**同一轮**里防止旧结果被采用。
+     * 而这条回路每一圈都是全新的 recognize()，进来就 ++runToken 把自己变成最新，
+     * 于是每一圈的 token 校验都通过。token 管的是"并行分叉"，管不了"自我激励"。
+     *
+     * 为什么 80ms 防抖也拦不住：防抖只合并"同一批"触发；这里每一圈都是
+     * 上一圈**结算完之后**才产生的新变更，时间上完全错开，防抖窗口永远落空。
+     *
+     * 修法：加一个显式的重入闸。由我们自己发起的换图，在它引发的
+     * src 变更/load 事件落地之前，给观察者挂一个"暂时别响应"的标志位；
+     * 重试循环结束后再放开。这样主动重试仍受 maxRefreshRetries 约束，
+     * 而观察者的反馈回路被彻底切断。
+     */
+    let suppressObserveUntil = 0;   // 时间戳：在此之前忽略观察者触发的识别
+
+    /**
+     * 把「观察者静默」向后延长 ms 毫秒。
+     * 用时间戳而不是布尔量：换图后的 load 事件可能晚于我们 resolve 的时刻才到，
+     * 布尔量在重试循环退出时就复位了，那个迟到的 load 仍会点燃下一圈。
+     */
+    function suppressObserver(ms) {
+        const until = Date.now() + ms;
+        if (until > suppressObserveUntil) suppressObserveUntil = until;
+    }
+    /**
+     * 提前解除静默。
+     *
+     * 光靠"到点自动失效"是不够的：闸门是 2000ms，而一次重试循环往往几百毫秒就结束了。
+     * 剩下的那一秒多里用户如果自己点了"换一张"，会被静默忽略 —— 表现为
+     * "我点了换图，脚本没反应"。观察者的静默只该覆盖重试进行中的那段时间。
+     *
+     * 由调用方保证只在"本轮确实换过图"时才调用，避免误解除别人的闸门。
+     */
+    function releaseObserver() {
+        suppressObserveUntil = 0;
+    }
+    const observerSuppressed = () => Date.now() < suppressObserveUntil;
+
+    async function refreshCaptcha(img) {
+        const btn = findRefreshButton();
+        if (!btn) {
+            log('未找到换图控件，跳过自动换图');
+            return false;
         }
 
-        const token = ++runToken;
+        // 记录点击前的 src —— 后面要靠它判断"站点到底有没有真的把图换掉"。
+        const oldSrc = img.getAttribute('src');
+
+        // 关闸必须在 click() **之前**。站点多半是同步改 src 的：
+        // 若放在 click 之后，MutationObserver 回调早已排进微任务队列，闸门白设。
+        // 必须先切断反馈回路，再产生会触发它的那个动作。
+        suppressObserver(2000);
+
+        try {
+            btn.click();
+        } catch (e) {
+            warn('换图控件点击失败：', e && e.message);
+            return false;
+        }
+        log('已触发换图');
+
+        // 等新图就绪。
+        //
+        // 4.5.0 修正（之前这段的 decode 分支其实是死代码）：
+        // 原写法是
+        //     const check = () => {
+        //         if (img.getAttribute('src') === oldSrc && !img.complete) return;  // ← 提前返回
+        //         if (typeof img.decode === 'function') { img.decode().then(...) }
+        //     };
+        // 问题在于站点用**同一个 URL** 重载验证码时（很常见，靠查询串或后端随机区分），
+        // src 字符串根本不变、而新图尚未加载完 —— 于是每次都被那行提前返回挡住，
+        // 下面的 decode() 永远执行不到，只能一路干等到 1200ms 超时。
+        // 结果：每次换图固定浪费 1.2 秒，且这 1.2 秒里确实可能读到上一帧。
+        //
+        // 正确做法是不要把"src 变了"当成调用 decode 的前置条件 ——
+        // decode() 本来就是"等这张图解码完"的语义，src 变没变它都能正确工作。
+        // 它只在两种情况下会拒绝：解码失败，或被更新的 src 取代（AbortError），
+        // 两种都该直接放行走超时兜底，而不是继续等。
+        // 换图有两种实现方式，等待策略必须同时覆盖：
+        //   * 同步改 src（多数站点）：click() 返回时 src 已经是新的；
+        //   * 异步改 src（ajax 取回新图）：click() 返回时 src **还是旧的**。
+        //
+        // 关键陷阱：img.decode() 在「src 没变、且旧图早已解码完」时会**立即兑现**。
+        // 于是在异步站点上，click() 之后立刻 decode() 会秒回 —— 我们以为新图就位了，
+        // 实际识别的仍是旧的那张；连续换图 3 次全是同一张旧图，白打三次站点接口。
+        // 所以「src 真的变了」必须是等待解码的前置条件。
+        // 兑现值 = src 是否真的变了。没变就说明换图没生效：浏览器不会为同一个
+        // URL 重新加载，再点几次也是同一张旧图，继续重试纯属空转。
+        const didChange = await new Promise(resolve => {
+            let done = false;
+            let poll = null;
+            let sawChange = false;
+            const finish = () => {
+                if (done) return;
+                done = true;
+                clearTimeout(t);
+                if (poll) clearInterval(poll);
+                resolve(sawChange);
+            };
+            // 兜底：最长等 1500ms，超时就放行 —— 宁可拿旧结果也不要把用户卡住
+            const t = setTimeout(finish, 1500);
+
+            let decodeTries = 0;
+            const decodeNow = () => {
+                if (done) return;
+                if (typeof img.decode === 'function') {
+                    img.decode().then(finish).catch(() => {
+                        // decode() 以 AbortError 拒绝的含义是「这次解码被更新的 src 取消」，
+                        // 也就是**新图还在路上**。把它当成"图片已就绪"直接放行，
+                        // 等于在尚未加载完的图上开跑，必须再等一次。
+                        // （早先这里写的是 .catch(finish)，AbortError 一出现就立刻放行。）
+                        if (!done && decodeTries++ < 20) setTimeout(decodeNow, 25);
+                    });
+                } else if (img.complete && img.naturalWidth > 0) {
+                    // 老浏览器无 decode()：已加载完就直接走，否则等事件或超时
+                    finish();
+                } else {
+                    img.addEventListener('load', finish, { once: true });
+                    img.addEventListener('error', finish, { once: true });
+                }
+            };
+
+            const changed = () => img.getAttribute('src') !== oldSrc;
+            if (changed()) {
+                sawChange = true;
+                decodeNow();      // 同步改 src 的站点：新图已在路上，直接等它解码完
+            } else {
+                // 异步站点：先等 src 变。这里用轮询而非 MutationObserver ——
+                // 要的是"一定能到"的简单可靠，30ms 粒度足够，总时长由上面的超时兜底。
+                poll = setInterval(() => {
+                    if (changed()) { sawChange = true; clearInterval(poll); poll = null; decodeNow(); }
+                }, 30);
+            }
+        });
+        if (!didChange) {
+            log('换图后 src 未发生变化，判定换图未生效（不再空转重试）');
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * 跑一次完整识别（ONNX 优先，失败回退 Tesseract）。
+     * 抽出来是为了让 recognize 里的"低置信换图重试"可以重复调用它。
+     * 抛错表示两路都跑不起来（真正的"识别失败"）；正常返回一定有 text。
+     */
+    async function recognizeOnce(img) {
         let res = null, engine = '';
         let ortErr = '', tessErr = '';   // 保留两路各自的真实错误，供失败时展示
 
@@ -1076,15 +1336,125 @@
                 warn('Tesseract 也失败：', e.message);
                 // 两路都挂了才叫"识别失败"。把两边的原因都写出来 ——
                 // 只写一句"识别失败"会让人以为是模型问题，实际上多半是网络/CSP。
-                showDiag(input, MSG_FAILED, 'ONNX: ' + (ortErr || '未尝试') + ' ｜ Tess: ' + (tessErr || '未尝试'));
+                const err = new Error('ENGINE_DOWN');
+                err.ortErr = ortErr;
+                err.tessErr = tessErr;
+                throw err;
+            }
+        }
+        res.engine = engine;
+        return res;
+    }
+
+    async function recognize(img) {
+        // 输入框找不到时以前是静默 return —— 用户完全看不出脚本是否在运行。
+        // 这是最难排查的一类失败：登录页改版把 ID 换掉的话，表现就是"什么都没发生"。
+        const input = document.querySelector(CFG.inputSelector);
+        if (!input) {
+            paintStatus('err', `找不到验证码输入框（${CFG.inputSelector}），页面结构可能已改版`);
+            return;
+        }
+
+        const token = ++runToken;
+        let res = null;
+
+        try {
+            res = await recognizeOnce(img);
+        } catch (e) {
+            if (e && e.message === 'ENGINE_DOWN') {
+                showDiag(input, MSG_FAILED,
+                    'ONNX: ' + (e.ortErr || '未尝试') + ' ｜ Tess: ' + (e.tessErr || '未尝试'));
                 return;
             }
+            warn('识别抛出未预期的错误：', e && e.message);
+            showDiag(input, MSG_ANOMALY, brief(e));
+            return;
+        }
+
+        if (token !== runToken) { log('已被更新的识别任务取代，丢弃结果'); return; }
+
+        // ---- 决策余量不足时的自动换图重试 ----
+        //
+        // 实测依据（220 张标注样本）：识别错误全部集中在第 4 个字符位，
+        // 且这些错误样本的 top1 置信高达 84%~99.6%（模型"自信地错"）——
+        // 概率阈值与正确样本完全重叠，单靠它筛不干净。
+        //
+        // v4.5.2 改用「决策间隔」（top1 与 top2 的 logit 之差）作判据：
+        // 同样拦下全部错误的前提下，换图率 15.5% → 6.4%（详见 CFG.lowMargin 的实测表）。
+        // 换一张图重识别的期望正确率远高于直接提交一张"贴着边界"的结果。
+        //
+        // 关键约束：
+        //   * 只在"结果可接受但余量不足"时重试，长度异常属于另一类问题，不重试；
+        //   * 重试次数有上限，避免无限换图；
+        //   * 每次重试都重新校验 token，用户手动换了图就立刻放弃本轮。
+        //   * Tesseract 路径的 minMargin 是 Infinity（口径不可比），因此不参与换图重试。
+        const isLow = (r) => r && r.minMargin < CFG.lowMargin;
+        const lenOk = (t) => t.length === 4 || t.length === 5;
+
+        let retries = 0;
+        let refreshed = false;   // 本轮是否真的换过图（决定要不要提前解除观察者闸门）
+
+        try {
+            while (isLow(res) && lenOk(res.text || '')
+                   && retries < CFG.maxRefreshRetries) {
+                if (token !== runToken) { log('重试期间任务已被取代，放弃'); return; }
+
+                retries++;
+                paintStatus('warn',
+                    `决策余量不足（间隔 ${res.minMargin.toFixed(2)}），正在换图重试 ${retries}/${CFG.maxRefreshRetries}…`);
+
+                const clicked = await refreshCaptcha(img);
+                if (!clicked) {
+                    // 没找到换图控件，或点了但 src 压根没变（换图未生效）。
+                    // 两种情况下屏幕上都还是原来那张图，当前结果仍然对得上，
+                    // 直接走低置信标注即可，不必接着空转。
+                    log('换图未成功（无控件或 src 未变），放弃重试');
+                    break;
+                }
+                refreshed = true;
+
+                if (token !== runToken) { log('换图后任务已被取代，放弃'); return; }
+
+                // 换图成功的一刻，屏幕上已经不是刚才那张图了 ——
+                // **换图之前得到的任何结果都随之作废**，包括"置信更高的那次"。
+                //
+                // 这里曾经保留 best（历史最高置信）作为重试用尽后的兜底，是个真实缺陷：
+                // 换图 3 次后屏幕上是第 4 张图，若第 2 张恰好置信最高，填入的就是第 2 张的
+                // 答案 —— 与用户眼前的验证码不符，必然登录失败。
+                // 置信度是用来判断"这一张能不能信"的，不是跨图片比较的分数。
+                try {
+                    const next = await recognizeOnce(img);
+                    if (!lenOk(next.text || '')) {
+                        log('换图后重新识别得到长度异常结果；旧结果已随换图作废');
+                        res = null;
+                        break;
+                    }
+                    res = next;
+                    log(`重试 ${retries} 结果 "${next.text}" 间隔 ${next.minMargin.toFixed(2)} 置信 ${(next.minConfidence * 100).toFixed(2)}%`);
+                } catch (e) {
+                    warn('换图后重新识别失败：', e && e.message);
+                    res = null;
+                    break;
+                }
+            }
+        } finally {
+            // 闸门只在重试进行中才需要。循环一结束就解除 ——
+            // 否则用户紧接着手动点"换一张"会被静默忽略（表现为脚本没反应）。
+            if (refreshed) releaseObserver();
+        }
+
+        if (!res) {
+            // 换图之后没拿到可信结果：屏幕上的图已经不对应我们手里任何一份答案，
+            // 这时候填任何东西都是错的 —— 宁可让用户自己看一眼。
+            showDiag(input, MSG_FAILED, '换图后未能重新识别，请手动输入');
+            return;
         }
 
         if (token !== runToken) { log('已被更新的识别任务取代，丢弃结果'); return; }
 
         const text = res.text || '';
-        if (text.length !== 4 && text.length !== 5) {
+        const engine = res.engine || '';
+        if (!lenOk(text)) {
             // 推理成功但位数不对：这才是真正的"模型给出意外结果"，
             // 和"两路都跑不起来"是两回事，必须分开显示。
             warn(`识别长度异常 (${text.length})：${text}`);
@@ -1113,14 +1483,17 @@
         clearOwnPlaceholder(input);
         setValue(input, text);
 
-        const low = res.minConfidence > 0 && res.minConfidence < CFG.lowConfidence;
+        const low = isLow(res);
         markInput(input, low);
-        log(`[${engine}] 填入 "${text}"${low ? '（低置信，已标记）' : ''}`);
+        log(`[${engine}] 填入 "${text}"${low ? '（决策余量不足，已标记）' : ''}`
+            + (retries ? ` 重试${retries}次` : ''));
         // 识别正常时不再常驻显示文字 —— 验证码图片本身已经把答案写在输入框里了，
         // 再挂一行"识别成功"只是噪音，还会占掉页面空间。
         // 只有低置信（需要用户核对）时才显示提示。
         if (low) {
-            paintStatus('warn', `识别为 "${text}"，置信度偏低（${(res.minConfidence * 100).toFixed(1)}%），请核对`);
+            const tried = retries ? `（已换图重试 ${retries} 次）` : '';
+            paintStatus('warn',
+                `识别为 "${text}"，决策余量仍不足（间隔 ${res.minMargin.toFixed(2)}）${tried}，请核对或手动换图`);
         } else {
             paintStatus('ok', '');
         }
@@ -1193,6 +1566,14 @@
         // 重复识别一张只花几毫秒，漏识别一张的代价是登录失败。
         let pending = null;
         const schedule = (why) => {
+            // 闸门：我们自己发起的换图会引发 src 变更/load，这些是**已知的、正在被
+            // 重试循环处理**的事件，不能再点燃一轮独立识别 —— 否则就是那个
+            // 33 次/秒的无限换图循环（详见 suppressObserver 的注释）。
+            // 注意判断放在这里而不是 observer 回调里：load 事件也走同一个 schedule。
+            if (observerSuppressed()) {
+                log('观察者静默中，忽略触发：', why);
+                return;
+            }
             clearTimeout(pending);
             pending = setTimeout(() => {
                 log('触发识别：', why);
