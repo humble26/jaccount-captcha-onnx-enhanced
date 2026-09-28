@@ -1,7 +1,7 @@
 import os, zipfile
 
-PKG = r"E:\harness\jAccount验证码识别-ResNet增强版"
-ZIP = r"E:\harness\jAccount验证码识别-ResNet增强版.zip"
+PKG = r"E:\harness\04-jAccount验证码识别\交付物\jAccount验证码识别-ResNet增强版"
+ZIP = r"E:\harness\04-jAccount验证码识别\交付物\jAccount验证码识别-ResNet增强版.zip"
 base = os.path.basename(PKG)
 
 if os.path.exists(ZIP):

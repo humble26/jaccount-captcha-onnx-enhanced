@@ -120,7 +120,7 @@ def md5(p):
         return 'ERR'
 
 
-A = r'E:\harness\jAccount验证码识别-项目归档\01-交付物'
+A = r'E:\harness\04-jAccount验证码识别\项目归档\01-交付物'
 pairs = [
     ('油猴脚本', USERJS, os.path.join(A, '增强版-油猴脚本', 'jaccount-captcha-onnx-enhanced.user.js')),
     ('CHANGELOG', os.path.join(WS, 'CHANGELOG.md'), os.path.join(A, '增强版-油猴脚本', 'CHANGELOG.md')),

@@ -26,7 +26,7 @@ from PIL import Image
 import onnxruntime as ort
 
 W = _VD
-ARCH = r'E:\harness\jAccount验证码识别-项目归档\02-重构研究'
+ARCH = r'E:\harness\04-jAccount验证码识别\项目归档\02-重构研究'
 ANALYSIS = os.path.join(ARCH, 'analysis')
 BACKPORT = os.path.join(ARCH, '_e2e_RT_backport')
 

@@ -12,9 +12,9 @@ _PY_BIN = _os.environ.get("PY_BIN") or _sys.executable
 import os, re, json, zipfile, hashlib, sys
 
 WS = _REPO
-MK_ZIP = r"E:\harness\jAccount验证码识别-ResNet增强版.zip"
+MK_ZIP = r"E:\harness\04-jAccount验证码识别\交付物\jAccount验证码识别-ResNet增强版.zip"
 EX_ZIP = r"E:\harness\jAccount验证码识别浏览器扩展版.zip"
-EX_ZIP2 = r"E:\harness\jAccount验证码识别-浏览器扩展版.zip"
+EX_ZIP2 = r"E:\harness\04-jAccount验证码识别\交付物\jAccount验证码识别-浏览器扩展版.zip"
 
 ok = []
 def chk(cond, msg):

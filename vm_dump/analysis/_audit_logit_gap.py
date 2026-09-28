@@ -25,8 +25,8 @@ import onnxruntime as ort
 
 W = _VD
 A_PATH = os.path.join(W, 'nn_model.onnx')
-B_PATH = r'E:\harness\jAccount验证码识别-项目归档\02-重构研究\_e2e_RT_backport\nn_model_e2e.onnx'
-ANALYSIS = r'E:\harness\jAccount验证码识别-项目归档\02-重构研究\analysis'
+B_PATH = r'E:\harness\04-jAccount验证码识别\项目归档\02-重构研究\_e2e_RT_backport\nn_model_e2e.onnx'
+ANALYSIS = r'E:\harness\04-jAccount验证码识别\项目归档\02-重构研究\analysis'
 
 print('== 1) initializer dtype ==')
 for tag, p in (('原生', A_PATH), ('回写', B_PATH)):

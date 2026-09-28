@@ -16,7 +16,7 @@ import os, re, shutil, zipfile, hashlib
 
 WS = _REPO
 SRC = os.path.join(WS, "jaccount-captcha-onnx-enhanced.user.js")
-PKG = r"E:\harness\jAccount验证码识别-ResNet增强版"
+PKG = r"E:\harness\04-jAccount验证码识别\交付物\jAccount验证码识别-ResNet增强版"
 ZIP = PKG + ".zip"
 
 # 0) 从脚本头部读出真实版本号

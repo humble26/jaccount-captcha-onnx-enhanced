@@ -17,7 +17,7 @@ import json
 import hashlib
 
 W = _VD
-ARCH = r'E:\harness\jAccount验证码识别-项目归档\02-重构研究'
+ARCH = r'E:\harness\04-jAccount验证码识别\项目归档\02-重构研究'
 A_DUP = os.path.join(W, 'new300')
 A_ORIG = os.path.join(ARCH, 'sampled')
 

@@ -13,7 +13,7 @@ import os
 import json
 from collections import Counter
 
-ARCH = r'E:\harness\jAccount验证码识别-项目归档\02-重构研究\analysis\_sampling_out'
+ARCH = r'E:\harness\04-jAccount验证码识别\项目归档\02-重构研究\analysis\_sampling_out'
 NEW = _os.path.join(_VD, "audit_sheets", "autolabel_new.json")
 
 old = {r['file']: r for r in json.load(open(os.path.join(ARCH, 'auto_labeled.json'), encoding='utf-8'))}

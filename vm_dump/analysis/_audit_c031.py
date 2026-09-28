@@ -24,7 +24,7 @@ from PIL import Image, ImageDraw
 W = _VD
 NEW = os.path.join(W, 'new300')
 OUT = os.path.join(W, 'audit_sheets')
-A = r'E:\harness\jAccount验证码识别-项目归档\02-重构研究\analysis\_sampling_out'
+A = r'E:\harness\04-jAccount验证码识别\项目归档\02-重构研究\analysis\_sampling_out'
 
 fn = 'c031.png'
 p = os.path.join(NEW, fn)

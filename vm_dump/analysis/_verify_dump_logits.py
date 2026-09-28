@@ -23,7 +23,7 @@ from PIL import Image
 import onnxruntime as ort
 
 W = _VD
-ARCH = r'E:\harness\jAccount验证码识别-项目归档\02-重构研究'
+ARCH = r'E:\harness\04-jAccount验证码识别\项目归档\02-重构研究'
 UNIFIED = os.path.join(ARCH, 'analysis', '_sampling_out', 'unified_gt_520.json')
 OUT_DIR = os.path.join(W, 'audit_sheets')
 MODEL = os.path.join(W, 'nn_model.onnx')

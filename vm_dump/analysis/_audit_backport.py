@@ -15,7 +15,7 @@ import os
 import hashlib
 
 W = _VD
-ARCH = r'E:\harness\jAccount验证码识别-项目归档\02-重构研究'
+ARCH = r'E:\harness\04-jAccount验证码识别\项目归档\02-重构研究'
 DUP = os.path.join(W, 'new300')
 ORIG = os.path.join(ARCH, 'sampled', 'new_captchas')
 

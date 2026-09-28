@@ -18,10 +18,10 @@ import shutil
 import zipfile
 
 WS = _REPO
-ARCH = r'E:\harness\jAccount验证码识别-项目归档\01-交付物'
+ARCH = r'E:\harness\04-jAccount验证码识别\项目归档\01-交付物'
 MONKEY_DIR = os.path.join(ARCH, '增强版-油猴脚本')
 EXT_DIR = os.path.join(ARCH, '浏览器扩展版')
-HARNESS = r'E:\harness'
+HARNESS = r'E:\harness\04-jAccount验证码识别\交付物'
 MONKEY_ZIP = os.path.join(HARNESS, 'jAccount验证码识别-ResNet增强版.zip')
 EXT_ZIP = os.path.join(HARNESS, 'jAccount验证码识别-浏览器扩展版.zip')
 

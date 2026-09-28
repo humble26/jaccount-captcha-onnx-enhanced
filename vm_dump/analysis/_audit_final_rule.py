@@ -22,7 +22,7 @@ from PIL import Image
 import onnxruntime as ort
 
 W = _VD
-A = r'E:\harness\jAccount验证码识别-项目归档\02-重构研究\analysis\_sampling_out'
+A = r'E:\harness\04-jAccount验证码识别\项目归档\02-重构研究\analysis\_sampling_out'
 MODEL = os.path.join(W, 'nn_model.onnx')
 gt220 = json.load(open(os.path.join(W, 'ground_truth_all.json'), encoding='utf-8'))
 gt300 = json.load(open(os.path.join(A, 'new300_gt.json'), encoding='utf-8'))

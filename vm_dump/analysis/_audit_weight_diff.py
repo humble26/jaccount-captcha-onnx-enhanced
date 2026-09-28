@@ -20,7 +20,7 @@ from onnx import numpy_helper
 
 W = _VD
 MODEL_NATIVE = os.path.join(W, 'nn_model.onnx')
-MODEL_E2E = r'E:\harness\jAccount验证码识别-项目归档\02-重构研究\_e2e_RT_backport\nn_model_e2e.onnx'
+MODEL_E2E = r'E:\harness\04-jAccount验证码识别\项目归档\02-重构研究\_e2e_RT_backport\nn_model_e2e.onnx'
 
 da = onnx.load(MODEL_NATIVE)
 db = onnx.load(MODEL_E2E)

@@ -13,7 +13,7 @@ import os
 import datetime
 import json
 
-A = r'E:\harness\jAccount验证码识别-项目归档'
+A = r'E:\harness\04-jAccount验证码识别\项目归档'
 W = _REPO
 
 
@@ -35,7 +35,7 @@ def tree(base, depth=2, prefix=''):
 print('===== 归档目录树（深度 2）=====')
 tree(A, 2)
 
-snap = r'E:\harness\_arch_snapshot.json'
+snap = r'E:\harness\04-jAccount验证码识别\交付物\_arch_snapshot.json'
 print()
 print('===== _arch_snapshot.json =====')
 try:

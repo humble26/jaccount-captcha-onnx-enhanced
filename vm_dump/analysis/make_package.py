@@ -10,8 +10,8 @@ _PY_BIN = _os.environ.get("PY_BIN") or _sys.executable
 import os, shutil, zipfile, json, hashlib
 
 WS = _REPO
-DST = r"E:\harness\jAccount验证码识别-ResNet增强版"
-ZIP = r"E:\harness\jAccount验证码识别-ResNet增强版.zip"
+DST = r"E:\harness\04-jAccount验证码识别\交付物\jAccount验证码识别-ResNet增强版"
+ZIP = r"E:\harness\04-jAccount验证码识别\交付物\jAccount验证码识别-ResNet增强版.zip"
 
 # 1) 复制交付物
 pairs = [

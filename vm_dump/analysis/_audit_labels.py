@@ -10,7 +10,7 @@ import os
 import json
 from collections import Counter
 
-A = r'E:\harness\jAccount验证码识别-项目归档\02-重构研究\analysis\_sampling_out'
+A = r'E:\harness\04-jAccount验证码识别\项目归档\02-重构研究\analysis\_sampling_out'
 auto = json.load(open(os.path.join(A, 'auto_labeled.json'), encoding='utf-8'))
 final = json.load(open(os.path.join(A, 'final_labels_300.json'), encoding='utf-8'))
 gt = json.load(open(os.path.join(A, 'new300_gt.json'), encoding='utf-8'))

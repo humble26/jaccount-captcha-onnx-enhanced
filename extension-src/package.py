@@ -11,8 +11,8 @@ import os, shutil, zipfile, hashlib, json
 
 WS = _REPO
 BUILD = os.path.join(WS, "extension-build", "jaccount-captcha-extension")
-PKG = r"E:\harness\jAccount验证码识别-浏览器扩展版"
-ZIP = r"E:\harness\jAccount验证码识别-浏览器扩展版.zip"
+PKG = r"E:\harness\04-jAccount验证码识别\交付物\jAccount验证码识别-浏览器扩展版"
+ZIP = r"E:\harness\04-jAccount验证码识别\交付物\jAccount验证码识别-浏览器扩展版.zip"
 
 # 0) 先清空整个包目录再重建。
 #    以前这里只 copytree 到子目录、不清顶层，于是上一版遗留的散落文件

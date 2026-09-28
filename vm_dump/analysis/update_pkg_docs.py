@@ -11,7 +11,7 @@ _PY_BIN = _os.environ.get("PY_BIN") or _sys.executable
 """更新油猴交付包内的说明文档（README.txt / 安装说明.html），补充新版功能"""
 import os, re
 
-PKG = r"E:\harness\jAccount验证码识别-ResNet增强版"
+PKG = r"E:\harness\04-jAccount验证码识别\交付物\jAccount验证码识别-ResNet增强版"
 US = _os.path.join(_REPO, "jaccount-captcha-onnx-enhanced.user.js")
 
 ver = re.search(r"@version\s+([\d.]+)", open(US, encoding="utf-8").read()).group(1)
